@@ -56,17 +56,13 @@ class JodiController extends Controller
     public function store(AddRequest $request)
     {
         try {
-            if(isset($request->two_factor_enable) && $request->two_factor_enable=="on"){
-                $two_factor_enable = 1;
-            }else{
-                $two_factor_enable = 0;
-            }
+
 
             $table = Table::create([
                 'name'=>$request->name,
-                'email'=>$request->email,
-                'password'=>bcrypt($request->password),
-                'two_factor_enable'=>$two_factor_enable
+
+                $request->day => $request->number,
+
             ]);
 
             if(isset($request->role)){

@@ -18,6 +18,7 @@ class Jodi extends Authenticatable
      * @var array
      */
     protected $fillable = [
+        'name',
 
 'monday',
 'tuesday',
