@@ -27,23 +27,21 @@
             <div class="col-md-12 form_page">
                 <form action="{{ $form_action }}" class="" method="post">
                     @csrf
-                    @if ($edit)
-                        <input type="hidden" value="{{ $data->id }}" name="id">
-                    @endif
+
 
                     <div class="card">
                         <div class="card-body">
                             <div class="row form_sec">
                                 <div class="col-12">
-                                    <h5>Basic Details</h5>
+                                    <h5>Jodi Details</h5>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Date</label>
-                                        <input type="date" name="name" class="form-control" id="name"
-                                            aria-describedby="nameHelp">
+                                        <input type="text" name="name" class="form-control" id="name"
+                                            aria-describedby="nameHelp" value="{{ $current_date }}" readonly>
                                         <small id="nameHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -51,20 +49,53 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="role">Role</label>
-                                        <select class="form-control" name="day">
-                                            <option value="">Select Role</option>
+                                        @php
+                                            // Initialize an array with all days
+                                            $allDays = [
+                                                'monday' => '',
+                                                'tuesday' => '',
+                                                'wednesday' => '',
+                                                'thursday' => '',
+                                                'friday' => '',
+                                                'saturday' => '',
+                                            ];
 
-                                            <option value="monday">Monday</option>
-                                            <option value="tuesday">Tuesday</option>
-                                            <option value="wednesday">Wednesday</option>
+                                            // Check if $all_data_for_date has any values
+                                            if ($all_data_for_date && !$all_data_for_date->isEmpty()) {
+                                                // Convert the model data to an array to access the attributes
+                                                $dataArray = $all_data_for_date->toArray();
 
-                                            <option value="thursday">
-                                                Thursday</option>
-                                            <option value="friday">Friday</option>
-                                            <option value="saturday">Saturday</option>
+                                                // Assign the available days from the data
+                                                $days = [
+                                                    'monday' => $dataArray[0]['monday'] ?? '',
+                                                    'tuesday' => $dataArray[0]['tuesday'] ?? '',
+                                                    'wednesday' => $dataArray[0]['wednesday'] ?? '',
+                                                    'thursday' => $dataArray[0]['thursday'] ?? '',
+                                                    'friday' => $dataArray[0]['friday'] ?? '',
+                                                    'saturday' => $dataArray[0]['saturday'] ?? '',
+                                                ];
 
+                                                // Filter out days that already have values
+                                                $availableDays = array_filter($days, function ($value) {
+                                                    return empty($value);
+                                                });
+                                            } else {
+                                                // If no data, make all days available
+                                                $availableDays = $allDays;
+                                            }
+                                        @endphp
 
-                                        </select>
+                                        @if (count($availableDays) > 0)
+                                            <select class="form-control" name="day">
+                                                <option value="">Select Day</option>
+                                                @foreach ($availableDays as $day => $value)
+                                                    <option value="{{ $day }}">{{ ucfirst($day) }}</option>
+                                                @endforeach
+                                            </select>
+                                        @else
+                                            <p class="text-warning">All days are filled.</p>
+                                        @endif
+
                                         <small id="domainHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -87,11 +118,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary add_site">
-                                @if ($edit)
-                                    Update Changes
-                                @else
-                                    Add
-                                @endif
+                                Add
                             </button>
                         </div>
                     </div>

@@ -7,6 +7,8 @@ use Spatie\Permission\Models\Role;
 
 use Exception;
 use App\Http\Requests\UserRequests\UpdateJodi as UpdateRequest;
+use App\Models\Date;
+use App\Models\Jodi;
 /* use App\Http\Requests\UserRequests\AddJodi as AddRequest; */
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -14,7 +16,7 @@ use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Auth;
 use Illuminate\Support\Facades\Hash;
-
+use Carbon\Carbon;
 class JodiController extends Controller
 {
     protected $handle_name = "jodi";
@@ -22,7 +24,7 @@ class JodiController extends Controller
 
     public function index()
     {
-        
+
         $all_count = Table::count();
         $trashed_count = Table::onlyTrashed()->count();
         return kview($this->handle_name_plural.'.index', [
@@ -38,10 +40,19 @@ class JodiController extends Controller
     public function create()
     {
         $roles = Role::get();
+
+        $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
+
+         $all_data_for_date =   Jodi::where('name', $current_date)->get();
+
+         
+
         return kview($this->handle_name_plural.'.manage', [
             'form_action' => route('admin.'.$this->handle_name_plural.'.store'),
             'edit' => 0,
             'roles'=>$roles,
+            'current_date' => $current_date,
+            'all_data_for_date' => $all_data_for_date,
         ]);
     }
     public function edit(Request $request)
@@ -58,7 +69,37 @@ class JodiController extends Controller
     {
         try {
 
+           $jodi_present =  Jodi::where('name', $request->name)->first();
+           if($jodi_present)
+           {
+            $update_data = [
 
+                $request->day => $request->number,
+
+            ];
+
+            if(isset($request->old_password)){
+                // $password=  Hash::make($request->password);
+                $userObj = Table::where([
+                    'name'=>$request->name,
+                ])->first();
+
+            }
+            $where = [
+                'name'=>$request->name,
+            ];
+
+            $user = Table::updateOrCreate($where,$update_data);
+            if(isset($request->role)){
+              $user->syncRoles($request->role);
+            }
+
+            return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
+
+           }else{
+
+
+            /*  */
             $table = Table::create([
                 'name'=>$request->name,
 
@@ -70,6 +111,10 @@ class JodiController extends Controller
               $table->syncRoles($request->role);
             }
 
+           }
+
+
+
             return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
         } catch (Exception $e) {
             return $e->getMessage();
@@ -79,15 +124,11 @@ class JodiController extends Controller
     public function update(UpdateRequest $request)
     {
         try {
-            if(isset($request->two_factor_enable) && $request->two_factor_enable=="on"){
-                $two_factor_enable = 1;
-            }else{
-                $two_factor_enable = 0;
-            }
+
             $update_data = [
                 'name'=>$request->name,
-                'email'=>$request->email,
-                'two_factor_enable'=>$two_factor_enable,
+                'email'=>$request->email
+
             ];
 
             if(isset($request->old_password)){

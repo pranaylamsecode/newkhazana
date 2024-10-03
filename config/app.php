@@ -67,7 +67,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'Asia/Kolkata',
 
     /*
     |--------------------------------------------------------------------------
@@ -134,7 +134,7 @@ return [
     |
     */
     'theme'=>env('APP_THEME','simple-bootstrap'),
-    
+
     'providers' => [
 
         /*

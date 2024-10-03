@@ -27,129 +27,96 @@
             <div class="col-md-12 form_page">
                 <form action="{{ $form_action }}" class="" method="post">
                     @csrf
-                    @if ($edit)
-                        <input type="hidden" value="{{ $data->id }}" name="id">
-                    @endif
-
                     <div class="card">
                         <div class="card-body">
                             <div class="row form_sec">
                                 <div class="col-12">
-                                    <h5>Basic Details</h5>
+                                    <h5>Panel Details</h5>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="name">Name</label>
-                                        <input type="text" name="name" class="form-control"
-                                            @if ($edit) value="{{ $data->name }}" @else value="{{ old('name') }}" @endif
-                                            id="name" aria-describedby="nameHelp">
+                                        <label for="name">Date</label>
+                                        <input type="text" name="name" class="form-control" id="name"
+                                            aria-describedby="nameHelp" value="{{ $current_date }}" readonly>
                                         <small id="nameHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="tagline">Email</label>
-                                        <input type="text" name="email" class="form-control"
-                                            @if ($edit) value="{{ $data->email }}" @else value="{{ old('email') }}" @endif
-                                            id="tagline" aria-describedby="taglineHelp">
-                                        <small id="taglineHelp" class="form-text text-muted"></small>
-                                    </div>
-                                </div>
+
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="role">Role</label>
-                                        <select class="form-control" name="role">
-                                            <option value="">Select Role</option>
-                                            @foreach ($roles as $role)
-                                                <?php
-                                                $selected = '';
-                                                if ($edit) {
-                                                    if ($data->hasRole($role)) {
-                                                        $selected = 'selected';
-                                                    }
-                                                }
-                                                ?>
-                                                <option value="{{ $role->name }}" {{ $selected }}>
-                                                    {{ ucfirst($role->name) }}</option>
-                                            @endforeach
-                                        </select>
+                                        @php
+                                            // Initialize an array with all days
+                                            $allDays = [
+                                                'monday' => '',
+                                                'tuesday' => '',
+                                                'wednesday' => '',
+                                                'thursday' => '',
+                                                'friday' => '',
+                                                'saturday' => '',
+                                            ];
+
+                                            // Check if $all_data_for_date has any values
+                                            if ($all_data_for_date && !$all_data_for_date->isEmpty()) {
+                                                // Convert the model data to an array to access the attributes
+                                                $dataArray = $all_data_for_date->toArray();
+
+                                                // Assign the available days from the data
+                                                $days = [
+                                                    'monday' => $dataArray[0]['monday'] ?? '',
+                                                    'tuesday' => $dataArray[0]['tuesday'] ?? '',
+                                                    'wednesday' => $dataArray[0]['wednesday'] ?? '',
+                                                    'thursday' => $dataArray[0]['thursday'] ?? '',
+                                                    'friday' => $dataArray[0]['friday'] ?? '',
+                                                    'saturday' => $dataArray[0]['saturday'] ?? '',
+                                                ];
+
+                                                // Filter out days that already have values
+                                                $availableDays = array_filter($days, function ($value) {
+                                                    return empty($value);
+                                                });
+                                            } else {
+                                                // If no data, make all days available
+                                                $availableDays = $allDays;
+                                            }
+                                        @endphp
+
+                                        @if (count($availableDays) > 0)
+                                            <select class="form-control" name="day">
+                                                <option value="">Select Day</option>
+                                                @foreach ($availableDays as $day => $value)
+                                                    <option value="{{ $day }}">{{ ucfirst($day) }}</option>
+                                                @endforeach
+                                            </select>
+                                        @else
+                                            <p class="text-warning">All days are filled.</p>
+                                        @endif
+
                                         <small id="domainHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <br />
-                    <div class="card">
-                        <div class="card-body">
-                            <div class="row form_sec">
-                                @if ($edit)
-                                    <div class="col-12">
-                                        <h5>Change Password (Do not enter if you don't wanted to change it)</h5>
-                                    </div>
-                                @else
-                                    <div class="col-12">
-                                        <h5>Set Password</h5>
-                                    </div>
-                                @endif
-                            </div>
-                            <div class="row">
+
                                 <div class="col-md-6">
-                                    @if ($edit)
-                                        <div class="form-group">
-                                            <label for="old_password">Old Password</label>
-                                            <input type="password" name="old_password" autocomplete="new-password"
-                                                class="form-control" id="old_password" aria-describedby="old_passwordHelp">
-                                            <small id="old_passwordHelp" class="form-text text-muted"></small>
-                                        </div>
-                                    @endif
                                     <div class="form-group">
-                                        <label for="new_password">New Password</label>
-                                        <input type="password" name="password" class="form-control" id="new_password"
-                                            aria-describedby="new_passwordHelp">
-                                        <small id="new_passwordHelp" class="form-text text-muted"></small>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="new_password_confirmation">Confirm Password</label>
-                                        <input type="password" name="password_confirmation" class="form-control"
-                                            id="new_password_confirmation" aria-describedby="new_password_confirmationHelp">
-                                        <small id="new_password_confirmationHelp" class="form-text text-muted"></small>
+                                        <label for="tagline">Number </label>
+                                        <input type="text" name="number" class="form-control" id="tagline"
+                                            aria-describedby="taglineHelp">
+                                        <small id="taglineHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <br />
-                    {{--  <div class="card">
-          <div class="card-body">
-            <div class="row form_sec">
-              <div class="col-12"><h5>Two Factor Authentication (Email/SMS)</h5></div>
-            </div>
-            <div class="row">
-              <div class="col-md-6">
-                <label class="switch">
-                  <input type="checkbox" name="two_factor_enable" <?php if ($edit) {
-                      if ($data->two_factor_enable == 1) {
-                          echo 'checked';
-                      }
-                  } ?> class="two_factor_enable" id="two_factor_enable">
-                  <span class="slider"></span>
-                </label>
-              </div>
-            </div>
-          </div>
-        </div> --}}
+
                     <br />
                     <div class="row">
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary add_site">
-                                @if ($edit)
-                                    Update Changes
-                                @else
-                                    Add User
-                                @endif
+                                Add
                             </button>
                         </div>
                     </div>

@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 use Exception;
 use App\Http\Requests\UserRequests\UpdateUser as UpdateRequest;
 use App\Http\Requests\UserRequests\AddUser as AddRequest;
+use App\Models\Panel;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -37,10 +38,18 @@ class PanelController extends Controller
     public function create()
     {
         $roles = Role::get();
+
+        $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
+
+            $all_data_for_date =   Jodi::where('name', $current_date)->get();
+
+
         return kview($this->handle_name_plural.'.manage', [
             'form_action' => route('admin.'.$this->handle_name_plural.'.store'),
             'edit' => 0,
             'roles'=>$roles,
+            'current_date' => $current_date,
+               'all_data_for_date' => $all_data_for_date,
         ]);
     }
     public function edit(Request $request)
@@ -56,28 +65,58 @@ class PanelController extends Controller
     public function store(AddRequest $request)
     {
         try {
-            if(isset($request->two_factor_enable) && $request->two_factor_enable=="on"){
-                $two_factor_enable = 1;
+
+            $panel_present =  Panel::where('name', $request->name)->first();
+            if($panel_present)
+            {
+             $update_data = [
+
+                 $request->day => $request->number,
+
+             ];
+
+             if(isset($request->old_password)){
+                 // $password=  Hash::make($request->password);
+                 $userObj = Table::where([
+                     'name'=>$request->name,
+                 ])->first();
+
+             }
+             $where = [
+                 'name'=>$request->name,
+             ];
+
+             $user = Table::updateOrCreate($where,$update_data);
+             if(isset($request->role)){
+               $user->syncRoles($request->role);
+             }
+
+             return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
+
             }else{
-                $two_factor_enable = 0;
+
+
+             /*  */
+             $table = Table::create([
+                 'name'=>$request->name,
+
+                 $request->day => $request->number,
+
+             ]);
+
+             if(isset($request->role)){
+               $table->syncRoles($request->role);
+             }
+
             }
 
-            $table = Table::create([
-                'name'=>$request->name,
-                'email'=>$request->email,
-                'password'=>bcrypt($request->password),
-                'two_factor_enable'=>$two_factor_enable
-            ]);
 
-            if(isset($request->role)){
-              $table->syncRoles($request->role);
-            }
 
-            return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
-        } catch (Exception $e) {
-            return $e->getMessage();
-            return redirect()->back()->with('error', $e->getMessage());
-        }
+             return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
+         } catch (Exception $e) {
+             return $e->getMessage();
+             return redirect()->back()->with('error', $e->getMessage());
+         }
     }
     public function update(UpdateRequest $request)
     {
