@@ -77,7 +77,7 @@
                                     <option value="20">20</option>
                                     <option value="50">50</option>
                                 </select>
-                                <a class="btn btn-primary ml-2" href="{{ $create_route }}">Add</a>
+                                {{--   <a class="btn btn-primary ml-2" href="{{ $create_route }}">Add</a> --}}
                             </div>
                         </div>
                     </div>
