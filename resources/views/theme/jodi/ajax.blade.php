@@ -27,7 +27,7 @@
                     <td>{{ $v->name }}</td>
                     <td>{{ \Carbon\Carbon::parse($v->name)->format('l') }}</td>
                     <td>{{ $v->number }}</td>
-                    <td>{{ $v->category_id }}</td>
+                    <td>{{ $v->category_name }}</td>
                     <td>
                         @if ($v->status == 1)
                             <span style="color: green;">●</span> {{-- Green dot for status 1 --}}

@@ -43,7 +43,12 @@ class PanelController extends Controller
 
         $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
 
-            $all_data_for_date =   Panel::where('name', $current_date)->get();
+            $all_data_for_date =   Panel::join('category', 'panels.category_id', '=', 'category.id')
+            ->where('panels.name', $current_date)
+            ->select('panels.*', 'category.name as category_name')
+            ->get();
+
+
             $categories =   Category::get();
 
         return kview($this->handle_name_plural.'.manage', [

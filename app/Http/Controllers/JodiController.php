@@ -44,7 +44,10 @@ class JodiController extends Controller
 
         $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
 
-         $all_data_for_date =   Jodi::where('name', $current_date)->get();
+         $all_data_for_date =  Jodi::join('category', 'jodis.category_id', '=', 'category.id')
+         ->where('jodis.name', $current_date)
+         ->select('jodis.*', 'category.name as category_name')
+         ->get();
          $categories =   Category::get();
 
 
