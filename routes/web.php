@@ -47,32 +47,32 @@ Route::middleware(['auth', 'twofactor'])->prefix('admin')->group(function () {
   Route::get('/users/ajax', "UserController@ajax")->name('admin.users.ajax');
   Route::post('/users/delete', "UserController@delete")->name('admin.users.delete');
   // For date
-  Route::get('/date', 'UserController@index')->name('admin.date.index');
-  Route::get('/date/add', "UserController@create")->name('admin.date.create');
-  Route::get('/date/edit', "UserController@edit")->name('admin.date.edit');
-  Route::post('/date/store', "UserController@store")->name('admin.date.store');
-  Route::post('/date/update', "UserController@update")->name('admin.date.update');
-  Route::get('/date/ajax', "UserController@ajax")->name('admin.date.ajax');
-  Route::post('/date/delete', "UserController@delete")->name('admin.date.delete');
+  Route::get('/date', 'DateController@index')->name('admin.date.index');
+  Route::get('/date/add', "DateController@create")->name('admin.date.create');
+  Route::get('/date/edit', "DateController@edit")->name('admin.date.edit');
+  Route::post('/date/store', "DateController@store")->name('admin.date.store');
+  Route::post('/date/update', "DateController@update")->name('admin.date.update');
+  Route::get('/date/ajax', "DateController@ajax")->name('admin.date.ajax');
+  Route::post('/date/delete', "DateController@delete")->name('admin.date.delete');
 
    // For Jodi
-   Route::get('/jodi', 'UserController@index')->name('admin.jodi.index');
-   Route::get('/jodi/add', "UserController@create")->name('admin.jodi.create');
-   Route::get('/jodi/edit', "UserController@edit")->name('admin.jodi.edit');
-   Route::post('/jodi/store', "UserController@store")->name('admin.jodi.store');
-   Route::post('/jodi/update', "UserController@update")->name('admin.jodi.update');
-   Route::get('/jodi/ajax', "UserController@ajax")->name('admin.jodi.ajax');
-   Route::post('/jodi/delete', "UserController@delete")->name('admin.jodi.delete');
+   Route::get('/jodi', 'JodiController@index')->name('admin.jodi.index');
+   Route::get('/jodi/add', "JodiController@create")->name('admin.jodi.create');
+   Route::get('/jodi/edit', "JodiController@edit")->name('admin.jodi.edit');
+   Route::post('/jodi/store', "JodiController@store")->name('admin.jodi.store');
+   Route::post('/jodi/update', "JodiController@update")->name('admin.jodi.update');
+   Route::get('/jodi/ajax', "JodiController@ajax")->name('admin.jodi.ajax');
+   Route::post('/jodi/delete', "JodiController@delete")->name('admin.jodi.delete');
 
 
    // For Panel
-   Route::get('/panel', 'UserController@index')->name('admin.panel.index');
-   Route::get('/panel/add', "UserController@create")->name('admin.panel.create');
-   Route::get('/panel/edit', "UserController@edit")->name('admin.panel.edit');
-   Route::post('/panel/store', "UserController@store")->name('admin.panel.store');
-   Route::post('/panel/update', "UserController@update")->name('admin.panel.update');
-   Route::get('/panel/ajax', "UserController@ajax")->name('admin.panel.ajax');
-   Route::post('/panel/delete', "UserController@delete")->name('admin.panel.delete');
+   Route::get('/panel', 'PanelController@index')->name('admin.panel.index');
+   Route::get('/panel/add', "PanelController@create")->name('admin.panel.create');
+   Route::get('/panel/edit', "PanelController@edit")->name('admin.panel.edit');
+   Route::post('/panel/store', "PanelController@store")->name('admin.panel.store');
+   Route::post('/panel/update', "PanelController@update")->name('admin.panel.update');
+   Route::get('/panel/ajax', "PanelController@ajax")->name('admin.panel.ajax');
+   Route::post('/panel/delete', "PanelController@delete")->name('admin.panel.delete');
 
   // For Roles
   Route::get('/roles', 'RoleController@index')->name('admin.roles.index');
