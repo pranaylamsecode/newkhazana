@@ -65,14 +65,15 @@ class PanelController extends Controller
     }
     public function store(Request $request)
     {
+
         try {
 
-            $panel_present =  Panel::where('name', $request->name)->first();
-            if($panel_present)
+            $jodi_present =  Panel::where('name', $request->name)->first();
+            if($jodi_present)
             {
              $update_data = [
 
-                 $request->day => $request->number,
+                 'number' => $request->number,
 
              ];
 
@@ -101,7 +102,7 @@ class PanelController extends Controller
              $table = Table::create([
                  'name'=>$request->name,
 
-                 $request->day => $request->number,
+                 'number'=> $request->number,
 
              ]);
 
@@ -118,7 +119,7 @@ class PanelController extends Controller
              return $e->getMessage();
              return redirect()->back()->with('error', $e->getMessage());
          }
-    }
+        }
     public function update(Request $request)
     {
         try {

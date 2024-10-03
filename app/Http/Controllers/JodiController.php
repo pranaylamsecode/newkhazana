@@ -74,7 +74,7 @@ class JodiController extends Controller
            {
             $update_data = [
 
-                $request->day => $request->number,
+                'number' => $request->number,
 
             ];
 
@@ -103,7 +103,59 @@ class JodiController extends Controller
             $table = Table::create([
                 'name'=>$request->name,
 
-                $request->day => $request->number,
+                'number'=> $request->number,
+
+            ]);
+
+            if(isset($request->role)){
+              $table->syncRoles($request->role);
+            }
+
+           }
+
+
+
+            return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
+        } catch (Exception $e) {
+            return $e->getMessage();
+            return redirect()->back()->with('error', $e->getMessage());
+        }try {
+
+           $jodi_present =  Jodi::where('name', $request->name)->first();
+           if($jodi_present)
+           {
+            $update_data = [
+
+                'number' => $request->number,
+
+            ];
+
+            if(isset($request->old_password)){
+                // $password=  Hash::make($request->password);
+                $userObj = Table::where([
+                    'name'=>$request->name,
+                ])->first();
+
+            }
+            $where = [
+                'name'=>$request->name,
+            ];
+
+            $user = Table::updateOrCreate($where,$update_data);
+            if(isset($request->role)){
+              $user->syncRoles($request->role);
+            }
+
+            return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
+
+           }else{
+
+
+            /*  */
+            $table = Table::create([
+                'name'=>$request->name,
+
+                'number'=> $request->number,
 
             ]);
 

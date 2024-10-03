@@ -9,12 +9,10 @@
                     <input type="checkbox" name="row_check_all" class="row_check_all">
                 </th> --}}
                 <th>Date</th>
-                <th>Monday</th>
-                <th>Tuesday</th>
-                <th>Wednesday</th>
-                <th>Thursday</th>
-                <th>Friday</th>
-                <th>Saturday</th>
+                <th>Day</th>
+                <th>Number</th>
+                <th>Status</th>
+
                 <th></th>
 
 
@@ -25,20 +23,24 @@
             @foreach ($data as $v)
                 <tr class="row_{{ $v->id }}">
 
-                    <td>{{ $v->name ?? '*' }}</td>
+                    <td>{{ $v->name }}</td>
+                    <td>{{ \Carbon\Carbon::parse($v->name)->format('l') }}</td>
+                    <td>{{ $v->number }}</td>
+                    <td>
+                        @if ($v->status == 1)
+                            <span style="color: green;">●</span> {{-- Green dot for status 1 --}}
+                        @else
+                            <span style="color: red;">●</span> {{-- Red dot for any other status --}}
+                        @endif
+                    </td>
 
-                    <td>{{ $v->monday ?? '*' }}</td>
-                    <td>{{ $v->tuesday ?? '*' }}</td>
-                    <td>{{ $v->wednesday ?? '*' }}</td>
-                    <td>{{ $v->thursday ?? '*' }}</td>
-                    <td>{{ $v->friday ?? '*' }}</td>
-                    <td>{{ $v->saturday ?? '*' }}</td>
+
+
 
 
                     <td>
                         <a href="#" data-id="{{ $v->id }}"
                             class="btn btn-danger delete_btn delete{{ $v->id }} btn-sm">Delete</a>
-
                     </td>
 
                 </tr>

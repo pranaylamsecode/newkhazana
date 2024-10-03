@@ -15,12 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name')->nullable();
             $table->string('status')->default(1)->nullable();
-            $table->string('monday')->nullable();
-            $table->string('tuesday')->nullable();
-            $table->string('wednesday')->nullable();
-            $table->string('thursday')->nullable();
-            $table->string('friday')->nullable();
-            $table->string('saturday')->nullable();
+            $table->string('number')->nullable();
             $table->timestamps();
             $table->softDeletes(); // Add this line for soft deletes
         });
