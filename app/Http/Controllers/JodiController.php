@@ -22,6 +22,7 @@ class JodiController extends Controller
 
     public function index()
     {
+        
         $all_count = Table::count();
         $trashed_count = Table::onlyTrashed()->count();
         return kview($this->handle_name_plural.'.index', [
