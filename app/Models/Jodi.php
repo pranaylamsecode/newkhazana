@@ -53,5 +53,10 @@ class Jodi extends Authenticatable
         return self::where('id', '=', $id)->updateOrCreate($obj);
     }
 
+    public function category()
+{
+    return $this->belongsTo(Category::class);
+}
+
 
 }

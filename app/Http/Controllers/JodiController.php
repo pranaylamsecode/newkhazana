@@ -225,7 +225,7 @@ class JodiController extends Controller
         $modalObject = new Table();
         if (isset($request->string)) {
             $string = $request->string;
-            $modalObject = $modalObject->where('name', 'like', "%" . $request->string . "%");
+            $modalObject = $modalObject->with('category')->where('name', 'like', "%" . $request->string . "%");
             // $modalObject = $modalObject->orWhere('name','like',"%".$request->string."%");
         }
 
