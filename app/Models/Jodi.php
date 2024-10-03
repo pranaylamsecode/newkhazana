@@ -19,7 +19,7 @@ class Jodi extends Authenticatable
      */
     protected $fillable = [
         'name',
-
+'status',
 'monday',
 'tuesday',
 'wednesday',

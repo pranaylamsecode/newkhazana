@@ -19,6 +19,7 @@ class Panel extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'status',
 
 'monday',
 'tuesday',

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('jodis', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
+            $table->string('status')->default(1)->nullable();
             $table->string('monday')->nullable();
             $table->string('tuesday')->nullable();
             $table->string('wednesday')->nullable();
