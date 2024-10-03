@@ -7,6 +7,7 @@ use Spatie\Permission\Models\Role;
 
 use Exception;
 use App\Http\Requests\UserRequests\UpdateJodi as UpdateRequest;
+use App\Models\Category;
 use App\Models\Date;
 use App\Models\Jodi;
 /* use App\Http\Requests\UserRequests\AddJodi as AddRequest; */
@@ -44,6 +45,7 @@ class JodiController extends Controller
         $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
 
          $all_data_for_date =   Jodi::where('name', $current_date)->get();
+         $categories =   Category::get();
 
 
 
@@ -53,6 +55,7 @@ class JodiController extends Controller
             'roles'=>$roles,
             'current_date' => $current_date,
             'all_data_for_date' => $all_data_for_date,
+            'categories' =>$categories
         ]);
     }
     public function edit(Request $request)
@@ -75,16 +78,11 @@ class JodiController extends Controller
             $update_data = [
 
                 'number' => $request->number,
+                'category_id' => $request->category_id,
 
             ];
 
-            if(isset($request->old_password)){
-                // $password=  Hash::make($request->password);
-                $userObj = Table::where([
-                    'name'=>$request->name,
-                ])->first();
 
-            }
             $where = [
                 'name'=>$request->name,
             ];
@@ -104,6 +102,7 @@ class JodiController extends Controller
                 'name'=>$request->name,
 
                 'number'=> $request->number,
+                'category_id' => $request->category_id,
 
             ]);
 
@@ -127,6 +126,7 @@ class JodiController extends Controller
             $update_data = [
 
                 'number' => $request->number,
+                'category_id' => $request->category_id,
 
             ];
 
@@ -156,6 +156,7 @@ class JodiController extends Controller
                 'name'=>$request->name,
 
                 'number'=> $request->number,
+                'category_id' => $request->category_id,
 
             ]);
 

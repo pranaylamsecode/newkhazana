@@ -44,6 +44,19 @@
                                     </div>
                                 </div>
 
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="name">Category</label>
+                                        <select name="category_id" required>
+                                            @foreach ($categories as $category)
+                                                <option value="{{ $category->id }}">{{ $categroy->name }}</option>
+                                            @endforeach
+                                        </select>
+
+                                        <small id="nameHelp" class="form-text text-muted"></small>
+                                    </div>
+                                </div>
+
 
 
                                 <div class="col-md-6">

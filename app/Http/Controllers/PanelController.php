@@ -8,6 +8,7 @@ use Spatie\Permission\Models\Role;
 use Exception;
 use App\Http\Requests\PanelRequests\UpdatePanel as UpdateRequest;
 use App\Http\Requests\PanelRequests\AddPanel as AddRequest;
+use App\Models\Category;
 use App\Models\Panel;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
@@ -43,7 +44,7 @@ class PanelController extends Controller
         $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
 
             $all_data_for_date =   Panel::where('name', $current_date)->get();
-
+            $categories =   Category::get();
 
         return kview($this->handle_name_plural.'.manage', [
             'form_action' => route('admin.'.$this->handle_name_plural.'.store'),
@@ -51,6 +52,7 @@ class PanelController extends Controller
             'roles'=>$roles,
             'current_date' => $current_date,
                'all_data_for_date' => $all_data_for_date,
+               'categories' =>$categories
         ]);
     }
     public function edit(Request $request)
@@ -74,6 +76,7 @@ class PanelController extends Controller
              $update_data = [
 
                  'number' => $request->number,
+                 'category_id' => $request->category_id,
 
              ];
 
@@ -103,6 +106,7 @@ class PanelController extends Controller
                  'name'=>$request->name,
 
                  'number'=> $request->number,
+                 'category_id' => $request->category_id,
 
              ]);
 
