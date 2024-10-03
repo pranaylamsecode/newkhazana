@@ -24,6 +24,11 @@ $menu = [
                 'icon' => 'fa fa-circle-o',
                 'route' => 'admin.panel.index',
             ],
+            2 => [
+                'name' => 'Category',
+                'icon' => 'fa fa-circle-o',
+                'route' => 'admin.category.index',
+            ],
         ],
     ],
 

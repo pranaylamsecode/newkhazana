@@ -75,6 +75,15 @@ Route::middleware(['auth', 'twofactor'])->prefix('admin')->group(function () {
    Route::get('/panel/ajax', "PanelController@ajax")->name('admin.panel.ajax');
    Route::post('/panel/delete', "PanelController@delete")->name('admin.panel.delete');
 
+     // For Category
+     Route::get('/category', 'CategoryController@index')->name('admin.category.index');
+     Route::get('/category/add', "CategoryController@create")->name('admin.category.create');
+     Route::get('/category/edit', "CategoryController@edit")->name('admin.category.edit');
+     Route::post('/category/store', "CategoryController@store")->name('admin.category.store');
+     Route::post('/category/update', "CategoryController@update")->name('admin.category.update');
+     Route::get('/category/ajax', "CategoryController@ajax")->name('admin.category.ajax');
+     Route::post('/category/delete', "CategoryController@delete")->name('admin.category.delete');
+
   // For Roles
   Route::get('/roles', 'RoleController@index')->name('admin.roles.index');
   Route::get('/roles/add', "RoleController@create")->name('admin.roles.create');
