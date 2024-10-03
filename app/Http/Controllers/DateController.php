@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jodi as Table;
+use App\Models\Date as Table;
 use Spatie\Permission\Models\Role;
 
 use Exception;
