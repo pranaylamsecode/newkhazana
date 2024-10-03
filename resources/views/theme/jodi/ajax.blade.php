@@ -38,6 +38,7 @@
                     <td>
                         <a href="#" data-id="{{ $v->id }}"
                             class="btn btn-danger delete_btn delete{{ $v->id }} btn-sm">Delete</a>
+
                     </td>
 
                 </tr>

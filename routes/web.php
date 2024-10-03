@@ -65,6 +65,7 @@ Route::middleware(['auth', 'twofactor'])->prefix('admin')->group(function () {
    Route::post('/jodi/delete', "JodiController@delete")->name('admin.jodi.delete');
 
 
+
    // For Panel
    Route::get('/panel', 'PanelController@index')->name('admin.panel.index');
    Route::get('/panel/add', "PanelController@create")->name('admin.panel.create');

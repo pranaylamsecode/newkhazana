@@ -12,7 +12,7 @@
                 <th>Date</th>
                 <th>Jodi</th>
                 <th>Panel</th>
-                <th>Action</th>
+                {{--  <th>Action</th> --}}
 
             </tr>
         </thead>

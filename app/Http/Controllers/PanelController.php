@@ -2,24 +2,25 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User as Table;
+use App\Models\Panel as Table;
 use Spatie\Permission\Models\Role;
 
 use Exception;
-use App\Http\Requests\UserRequests\UpdateUser as UpdateRequest;
-use App\Http\Requests\UserRequests\AddUser as AddRequest;
+use App\Http\Requests\PanelRequests\UpdatePanel as UpdateRequest;
+use App\Http\Requests\PanelRequests\AddPanel as AddRequest;
 use App\Models\Panel;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 use Auth;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Hash;
 
 class PanelController extends Controller
 {
-    protected $handle_name = "user";
-    protected $handle_name_plural = "users";
+    protected $handle_name = "panel";
+    protected $handle_name_plural = "panel";
 
     public function index()
     {
@@ -41,7 +42,7 @@ class PanelController extends Controller
 
         $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
 
-            $all_data_for_date =   Jodi::where('name', $current_date)->get();
+            $all_data_for_date =   Panel::where('name', $current_date)->get();
 
 
         return kview($this->handle_name_plural.'.manage', [
@@ -62,7 +63,7 @@ class PanelController extends Controller
             'roles'=>$roles,
         ]);
     }
-    public function store(AddRequest $request)
+    public function store(Request $request)
     {
         try {
 
@@ -118,18 +119,18 @@ class PanelController extends Controller
              return redirect()->back()->with('error', $e->getMessage());
          }
     }
-    public function update(UpdateRequest $request)
+    public function update(Request $request)
     {
         try {
-            if(isset($request->two_factor_enable) && $request->two_factor_enable=="on"){
+            /* if(isset($request->two_factor_enable) && $request->two_factor_enable=="on"){
                 $two_factor_enable = 1;
             }else{
                 $two_factor_enable = 0;
-            }
+            } */
             $update_data = [
                 'name'=>$request->name,
                 'email'=>$request->email,
-                'two_factor_enable'=>$two_factor_enable,
+
             ];
 
             if(isset($request->old_password)){

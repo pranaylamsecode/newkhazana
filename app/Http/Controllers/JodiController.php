@@ -45,7 +45,7 @@ class JodiController extends Controller
 
          $all_data_for_date =   Jodi::where('name', $current_date)->get();
 
-         
+
 
         return kview($this->handle_name_plural.'.manage', [
             'form_action' => route('admin.'.$this->handle_name_plural.'.store'),
