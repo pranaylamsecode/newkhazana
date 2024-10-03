@@ -6,8 +6,8 @@ use App\Models\Jodi as Table;
 use Spatie\Permission\Models\Role;
 
 use Exception;
-use App\Http\Requests\UserRequests\UpdateUser as UpdateRequest;
-use App\Http\Requests\UserRequests\AddUser as AddRequest;
+use App\Http\Requests\UserRequests\UpdateJodi as UpdateRequest;
+/* use App\Http\Requests\UserRequests\AddJodi as AddRequest; */
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -53,7 +53,7 @@ class JodiController extends Controller
             'roles'=>$roles,
         ]);
     }
-    public function store(AddRequest $request)
+    public function store(Request $request)
     {
         try {
 
