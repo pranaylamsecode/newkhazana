@@ -15,14 +15,19 @@ $menu = [
         'route' => '',
         'dropdown_items' => [
             0 => [
-                'name' => 'Jodi',
+                'name' => 'Date',
                 'icon' => 'fa fa-circle-o',
-                'route' => 'admin.users.index',
+                'route' => 'admin.date.index',
             ],
             1 => [
+                'name' => 'Jodi',
+                'icon' => 'fa fa-circle-o',
+                'route' => 'admin.jodi.create',
+            ],
+            2 => [
                 'name' => 'Panel',
                 'icon' => 'fa fa-circle-o',
-                'route' => 'admin.users.index',
+                'route' => 'admin.panel.create',
             ],
         ],
     ],

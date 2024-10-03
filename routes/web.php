@@ -46,7 +46,14 @@ Route::middleware(['auth', 'twofactor'])->prefix('admin')->group(function () {
   Route::post('/users/update', "UserController@update")->name('admin.users.update');
   Route::get('/users/ajax', "UserController@ajax")->name('admin.users.ajax');
   Route::post('/users/delete', "UserController@delete")->name('admin.users.delete');
-
+  // For date
+  Route::get('/date', 'UserController@index')->name('admin.date.index');
+  Route::get('/date/add', "UserController@create")->name('admin.date.create');
+  Route::get('/date/edit', "UserController@edit")->name('admin.date.edit');
+  Route::post('/date/store', "UserController@store")->name('admin.date.store');
+  Route::post('/date/update', "UserController@update")->name('admin.date.update');
+  Route::get('/date/ajax', "UserController@ajax")->name('admin.date.ajax');
+  Route::post('/date/delete', "UserController@delete")->name('admin.date.delete');
 
    // For Jodi
    Route::get('/jodi', 'UserController@index')->name('admin.jodi.index');

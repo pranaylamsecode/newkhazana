@@ -57,7 +57,7 @@
                                         <small id="taglineHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 d-none">
                                     <div class="form-group">
                                         <label for="role">Role</label>
                                         <select class="form-control" name="role">
