@@ -72,111 +72,44 @@ class JodiController extends Controller
         ]);
     }
     public function store(Request $request)
-    {
-        try {
+{
+    try {
+        // Check if the record already exists with the same name and category_id
+        $existingRecord = Table::where('name', $request->name)
+                                ->where('category_id', $request->category_id)
+                                ->first();
 
-           $jodi_present =  Jodi::where('name', $request->name)->first();
-           if($jodi_present)
-           {
-            $update_data = [
+        // Prepare the data to update/create
+        $data = [
+            'name' => $request->name,
+            'number' => $request->number,
+            'category_id' => $request->category_id,
+        ];
 
-                'number' => $request->number,
-                'category_id' => $request->category_id,
-
-            ];
-
-
-            $where = [
-                'name'=>$request->name,
-            ];
-
-            $user = Table::updateOrCreate($where,$update_data);
-            if(isset($request->role)){
-              $user->syncRoles($request->role);
-            }
-
-            return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
-
-           }else{
-
-
-            /*  */
-            $table = Table::create([
-                'name'=>$request->name,
-
-                'number'=> $request->number,
-                'category_id' => $request->category_id,
-
-            ]);
-
-            if(isset($request->role)){
-              $table->syncRoles($request->role);
-            }
-
-           }
-
-
-
-            return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
-        } catch (Exception $e) {
-            return $e->getMessage();
-            return redirect()->back()->with('error', $e->getMessage());
-        }try {
-
-           $jodi_present =  Jodi::where('name', $request->name)->first();
-           if($jodi_present)
-           {
-            $update_data = [
-
-                'number' => $request->number,
-                'category_id' => $request->category_id,
-
-            ];
-
-            if(isset($request->old_password)){
-                // $password=  Hash::make($request->password);
-                $userObj = Table::where([
-                    'name'=>$request->name,
-                ])->first();
-
-            }
-            $where = [
-                'name'=>$request->name,
-            ];
-
-            $user = Table::updateOrCreate($where,$update_data);
-            if(isset($request->role)){
-              $user->syncRoles($request->role);
-            }
-
-            return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
-
-           }else{
-
-
-            /*  */
-            $table = Table::create([
-                'name'=>$request->name,
-
-                'number'=> $request->number,
-                'category_id' => $request->category_id,
-
-            ]);
-
-            if(isset($request->role)){
-              $table->syncRoles($request->role);
-            }
-
-           }
-
-
-
-            return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
-        } catch (Exception $e) {
-            return $e->getMessage();
-            return redirect()->back()->with('error', $e->getMessage());
+        if ($existingRecord) {
+            // If the record exists, update it
+            $existingRecord->update($data);
+            $user = $existingRecord;
+        } else {
+            // If the record doesn't exist, create a new one
+            $user = Table::create($data);
         }
+
+        // If role is present, sync the roles
+        if (isset($request->role)) {
+            $user->syncRoles($request->role);
+        }
+
+        // Redirect with success message
+        return redirect()->route('admin.' . $this->handle_name_plural . '.index')
+                         ->with('success', ucfirst($this->handle_name) . ' has been successfully ' . ($existingRecord ? 'updated' : 'created') . '.');
+
+    } catch (Exception $e) {
+        // Handle any exception and return back with an error
+        return redirect()->back()->with('error', $e->getMessage());
     }
+}
+
     public function update(UpdateRequest $request)
     {
         try {

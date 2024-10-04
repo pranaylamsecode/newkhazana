@@ -20,7 +20,8 @@ class Panel extends Authenticatable
     protected $fillable = [
         'name',
         'status',
-        'number'
+        'number',
+         'category_id'
     ];
 
     /**
