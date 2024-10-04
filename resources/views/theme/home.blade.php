@@ -16,7 +16,7 @@
 
                     <?php $today = \Carbon\Carbon::now('Asia/Kolkata')->format('Y-m-d'); ?>
                     <h4>Today's : {{ \Carbon\Carbon::parse($today)->format('l') }} {{ $today }}</h4><br />
-                    <h2>Result </h2>
+                    <h2>Result  </h2>
 
                 </a>
             </div>

@@ -49,7 +49,7 @@
                                         <label for="name">Category</label>
                                         <select name="category_id" required>
                                             @foreach ($categories as $category)
-                                                <option value="{{ $category->id }}">{{ $categroy->name }}</option>
+                                                <option value="{{ $category->id }}">{{ $category->name }}</option>
                                             @endforeach
                                         </select>
 
