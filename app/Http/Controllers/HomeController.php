@@ -45,6 +45,6 @@ class HomeController extends Controller
 
             // ['News', $news, 'news.index'],
         ];
-        return kview('home',compact('dashboard_cards','jodi_data','panel_data'));
+        return kview('home', compact('dashboard_cards', 'jodi_data', 'panel_data'));
     }
 }
