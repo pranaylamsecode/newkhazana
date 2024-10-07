@@ -1697,34 +1697,23 @@
     <h4 class="banner">WORLD ME SABSE FAST SATTA MATKA RESULT</h4>
 
     <div class="satta-main-result" style="border-color: #aa00c0;margin-bottom: 2px;">
-        <div>
-            <h4>NEW KHAJANA DAY</h4>
-            <span>250-71-579</span>
-            <p>03:15 PM &nbsp;&nbsp; 05:15 PM</p>
-            <a href="jodi/khajana" class="result_timing_b result_btn_chart">Jodi</a>
-            <a href="panel/khajana" class="result_timing_b_right result_btn_chart">Panel</a>
-        </div>
 
-        <div class="yellowbg">
-
-
-            <h4>NEW KHAJANA NIGHT</h4>
-            <span>148-3</span>
-            <p>10:00 AM &nbsp;&nbsp; 11:00 AM</p>
-            <a href="jodi/karnataka-day" class="result_timing_b result_btn_chart">Jodi</a>
-            <a href="panel/karnataka-day" class="result_timing_b_right result_btn_chart">Panel</a>
-        </div>
+        @foreach ($categories as $categorie)
+            {{-- class  yellowbg --}}
+            <div>
+                <h4>{{ $categorie->name ?? 'N/A' }}</h4>
+                <span>{{ $categorie->desc ?? 'N/A' }}</span>
+                <p>{{ $categorie->start_time }} &nbsp;&nbsp; {{ $categorie->end_time }}</p>
+                <a href="{{ url('jodi/' . $categorie->name) }}" class="result_timing_b result_btn_chart">Jodi</a>
+                <a href="{{ url('panel/' . $categorie->name) }}"
+                    class="result_timing_b_right result_btn_chart">Panel</a>
+            </div>
+        @endforeach
 
 
 
 
-        <div>
-            <h4>NEW KHAJANA DAY</h4>
-            <span>Coming Soon..</span>
-            <p>09:30 PM &nbsp;&nbsp; 11:30 PM</p>
-            <a href="#" class="result_timing_b result_btn_chart">Jodi</a>
-            <a href="#" class="result_timing_b_right result_btn_chart">Panel</a>
-        </div>
+
 
     </div>
 

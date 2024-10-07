@@ -17,6 +17,10 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'IndexController@index')->name('home');
 
+Route::get('jodi/{category_name}', 'IndexController@jodiDisplay');
+
+Route::get('panel/{category_name}', 'IndexController@PanelDisplay');
+
 Auth::routes([
   'register' => false, // Registration Routes...
   'reset' => false, // Password Reset Routes...
