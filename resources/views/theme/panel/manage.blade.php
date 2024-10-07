@@ -47,7 +47,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Category</label>
-                                        <select name="category_id" required>
+                                        <select class="custom-select change_row_limit" name="category_id" required>
                                             <option value="">Select</option>
                                             @foreach ($categories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
