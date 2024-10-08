@@ -10,7 +10,6 @@
             @endif
         </div>
 
-        {{--  @foreach ($dashboard_cards as $card) --}}
         <div class="col-md-6 col-lg-3 center">
             <a href="#" class="card-hover">
 
@@ -20,35 +19,29 @@
                 ?>
                 <h4>Today's : {{ $dayOfWeek }} {{ $today }}</h4><br />
 
-
-                @foreach ($category_data as $categorie )
-               
-                <div class="jodi-info"
-                    style="display: inline-block; width: 48%; vertical-align: top; padding: 10px; border: 1px solid #ddd; margin-right: 2%;">
-                    <h4>{{ $categorie->name }}</h4>
-                    <strong style="color:green ;">Jodi</strong>
-                    <h5>Number: {{ $jodi_data->number ?? 'N/A' }}</h5>
-                    <!-- Add other fields you want to display from $jodi_data -->
+                <div class="row">
+                    @foreach ($category_data as $categorie)
+                        <div class="col-6 mb-2"> <!-- Use Bootstrap's grid system for 2 columns -->
+                            <div class="jodi-info"
+                                 style="padding: 10px; border: 1px solid #ddd;">
+                                <h4>{{ ucwords($categorie->name) }}</h4>
+                                <strong style="color: green;">Jodi</strong>
+                                <h5>Number: {{ $jodi_data->number ?? 'N/A' }}</h5>
+                                <!-- Add other fields you want to display from $jodi_data -->
+                            </div>
+                        </div>
+                        <div class="col-6 mb-2"> <!-- Use Bootstrap's grid system for 2 columns -->
+                            <div class="jodi-info"
+                                 style="padding: 10px; border: 1px solid #ddd;">
+                                <h4>{{ ucwords($categorie->name) }}</h4>
+                                <strong style="color: red;">Panel</strong>
+                                <h5>Number: {{ $jodi_data->number ?? 'N/A' }}</h5>
+                                <!-- Add other fields you want to display from $jodi_data -->
+                            </div>
+                        </div> <br/>
+                    @endforeach
                 </div>
-
-                <div class="jodi-info"
-                    style="display: inline-block; width: 48%; vertical-align: top; padding: 10px; border: 1px solid #ddd; margin-right: 2%;">
-                    <h4>{{ $categorie->name }}</h4>
-                    <strong style="color:red ;">Panel</strong>
-                    <h5>Number: {{ $jodi_data->number ?? 'N/A' }}</h5>
-                    <!-- Add other fields you want to display from $jodi_data -->
-                </div>
-          
-                @endforeach
-
-                
-
-               
-
-
-
             </a>
         </div>
-        {{-- @endforeach --}}
     </div>
 @endsection
