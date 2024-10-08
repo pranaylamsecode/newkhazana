@@ -42,7 +42,7 @@
                                  style="padding: 10px; border: 1px solid #ddd;">
                                 <h4>{{ ucwords($categorie->name) }}</h4>
                                 <strong style="color: red;">Panel</strong>
-                                <h5>Number: {{ $jodi_data->number ?? 'N/A' }}</h5>
+                                <h5>Number: {{ $panel_data->number ?? 'N/A' }}</h5>
                                 <!-- Add other fields you want to display from $jodi_data -->
                             </div>
                         </div> <br/>
