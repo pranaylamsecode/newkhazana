@@ -23,9 +23,9 @@
                     @foreach ($category_data as $categorie)
 
                     @php 
-       /*  $jodi_data = Jodi::where('name', $current_date)->first();
+        $jodi_data =  App\Models\Jodi::where('name', $current_date)->where('category_id', $categorie->id)->first();
 
-        $panel_data  = Panel::where('name', $current_date)->first(); */
+        $panel_data  = App\Models\Panel::where('name', $current_date)->where('category_id', $categorie->id)->first();
 
         @endphp
                         <div class="col-6 mb-2"> <!-- Use Bootstrap's grid system for 2 columns -->
