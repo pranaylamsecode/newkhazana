@@ -22,14 +22,23 @@
 
 
                 @foreach ($category_data as $categorie )
-                @if ($jodi_data)
+               
                 <div class="jodi-info"
                     style="display: inline-block; width: 48%; vertical-align: top; padding: 10px; border: 1px solid #ddd; margin-right: 2%;">
-                    <h4>Jodi</h4>
-                    <p>Number: {{ $jodi_data->number ?? 'N/A' }}</p>
+                    <h4>{{ $categorie->name }}</h4>
+                    <strong style="color:green ;">Jodi</strong>
+                    <h5>Number: {{ $jodi_data->number ?? 'N/A' }}</h5>
                     <!-- Add other fields you want to display from $jodi_data -->
                 </div>
-            @endif
+
+                <div class="jodi-info"
+                    style="display: inline-block; width: 48%; vertical-align: top; padding: 10px; border: 1px solid #ddd; margin-right: 2%;">
+                    <h4>{{ $categorie->name }}</h4>
+                    <strong style="color:red ;">Panel</strong>
+                    <h5>Number: {{ $jodi_data->number ?? 'N/A' }}</h5>
+                    <!-- Add other fields you want to display from $jodi_data -->
+                </div>
+          
                 @endforeach
 
                 
