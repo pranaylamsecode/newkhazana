@@ -21,27 +21,20 @@
                 <h4>Today's : {{ $dayOfWeek }} {{ $today }}</h4><br />
 
 
-
-
+                @foreach ($category_data as $categorie )
                 @if ($jodi_data)
-                    <div class="jodi-info"
-                        style="display: inline-block; width: 48%; vertical-align: top; padding: 10px; border: 1px solid #ddd; margin-right: 2%;">
-                        <h4>Jodi</h4>
-                        <p>Number: {{ $jodi_data->number ?? 'N/A' }}</p>
-                        <!-- Add other fields you want to display from $jodi_data -->
-                    </div>
-                @endif
+                <div class="jodi-info"
+                    style="display: inline-block; width: 48%; vertical-align: top; padding: 10px; border: 1px solid #ddd; margin-right: 2%;">
+                    <h4>Jodi</h4>
+                    <p>Number: {{ $jodi_data->number ?? 'N/A' }}</p>
+                    <!-- Add other fields you want to display from $jodi_data -->
+                </div>
+            @endif
+                @endforeach
 
-                @if ($panel_data)
-                    <div class="panel-info"
-                        style="display: inline-block; width: 48%; vertical-align: top; padding: 10px; border: 1px solid #ddd;">
-                        <h4>Panel</h4>
-                        <p>Number: {{ $panel_data->number ?? 'N/A' }}</p>
-                        <!-- Add other fields you want to display from $panel_data -->
-                    </div>
-                @endif
+                
 
-
+               
 
 
 

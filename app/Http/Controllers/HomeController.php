@@ -6,6 +6,7 @@ use App\Models\Jodi;
 use App\Models\Panel;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Category;
 use Carbon\Carbon;
 
 class HomeController extends Controller
@@ -37,6 +38,8 @@ class HomeController extends Controller
 
         $panel_data  = Panel::where('name', $current_date)->first();
 
+        $category_data  = Category::get();
+
 
 
         // Preparing Dashboard card Array.
@@ -45,6 +48,6 @@ class HomeController extends Controller
 
             // ['News', $news, 'news.index'],
         ];
-        return kview('home', compact('dashboard_cards', 'jodi_data', 'panel_data'));
+        return kview('home', compact('dashboard_cards', 'jodi_data', 'panel_data','category_data'));
     }
 }
