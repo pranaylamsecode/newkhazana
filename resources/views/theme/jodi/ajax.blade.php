@@ -6,9 +6,7 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    {{-- <th width="10px">
-                        <input type="checkbox" name="row_check_all" class="row_check_all">
-                    </th> --}}
+                    
                     <th>Date</th>
                     <th>Day</th>
                     <th>Number</th>

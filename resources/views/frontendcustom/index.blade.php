@@ -1743,10 +1743,8 @@
         </div>
         <h6 class="pby_us">POWERD BY WorldInfo</h6>
         <div class="ftr_sm">
-            <p> &copy; 2011 - 2024 <br>
-                <a href="{{ url('about') }}">About us</a> | <a href="{{ url('contact') }}">Contact us</a> <br>
-                <a href="{{ url('privacy') }}">Privacy &amp; policy</a> | <a href="{{ url('toc') }}">Term And
-                    Conditions</a> |
+            <p> &copy; 2024 - 2025 <br>
+                
                 {{-- <a href="sitemap.xml">Sitemap</a> --}}
             </p>
         </div>
