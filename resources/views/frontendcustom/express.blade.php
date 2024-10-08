@@ -8,8 +8,6 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <script async src="../../cdn.ampproject.org/v0.js"></script>
-    <script async custom-element="amp-form" src="../../cdn.ampproject.org/v0/amp-form-0.1.js"></script>
     <title>KHAJANA JODI CHART RECORD SATTA MATKA SPBOSS</title>
     <meta name="description"
         content="KHAJANA CHART MATKA BAZAR CHART RECORD LIVE KHAJANA MATKA CHARTS RECORD WITH JODIES PANNA KHAJANA PATTI OLD MATKA RECORD MATKA JODI RECORD SATTA HISTORY" />
@@ -264,65 +262,7 @@
         }
 
         .red,
-        .chart-11,
-        .chart-22,
-        .chart-33,
-        .chart-44,
-        .chart-55,
-        .chart-66,
-        .chart-77,
-        .chart-88,
-        .chart-99,
-        .chart-00,
-        .chat-05,
-        .chat-50,
-        .chat-16,
-        .chat-61,
-        .chat-27,
-        .chat-72,
-        .chat-38,
-        .chat-83,
-        .chat-49,
-        .chat-94 {
-            color: red;
-        }
-
-        .chart-05,
-        .chart-50,
-        .chart-16,
-        .chart-61,
-        .chart-27,
-        .chart-72,
-        .chart-38,
-        .chart-83,
-        .chart-49,
-        .chart-94 {
-            color: red;
-        }
-
-        .css-11,
-        .css-16,
-        .css-22,
-        .css-27,
-        .css-33,
-        .css-38,
-        .css-44,
-        .css-49,
-        .css-50,
-        .css-55,
-        .css-61,
-        .css-66,
-        .css-72,
-        .css-83,
-        .css-88,
-        .css-94,
-        .css-99,
-        .css-05,
-        .css-00,
-        .css-77,
-        .css-star {
-            color: red;
-        }
+      
 
         @media only screen and (max-width: 770px) {
             .panel.panel-info {
@@ -591,46 +531,7 @@
                                 <td class="chart-91">91</td>
                                 <td class="chart-78">78</td>
                             </tr>
-                            <tr>
-                                <td class="chart-56">56</td>
-                                <td class="chart-32">32</td>
-                                <td class="chart-39">39</td>
-                                <td class="chart-81">81</td>
-                                <td class="chart-36">36</td>
-                                <td class="chart-12">12</td>
-                            </tr>
-                            <tr>
-                                <td class="chart-64">64</td>
-                                <td class="chart-15">15</td>
-                                <td class="chart-17">17</td>
-                                <td class="chart-53">53</td>
-                                <td class="chart-53">53</td>
-                                <td class="chart-87">87</td>
-                            </tr>
-                            <tr>
-                                <td class="chart-48">48</td>
-                                <td class="chart-95">95</td>
-                                <td class="chart-81">81</td>
-                                <td class="chart-24">24</td>
-                                <td class="chart-34">34</td>
-                                <td class="chart-32">32</td>
-                            </tr>
-                            <tr>
-                                <td class="chart-93">93</td>
-                                <td class="chart-37">37</td>
-                                <td class="chart-85">85</td>
-                                <td class="chart-60">60</td>
-                                <td class="chart-76">76</td>
-                                <td class="chart-84">84</td>
-                            </tr>
-                            <tr>
-                                <td class="chart-46">46</td>
-                                <td class="chart-20">20</td>
-                                <td class="chart-88">88</td>
-                                <td class="chart-96">96</td>
-                                <td class="chart-85">85</td>
-                                <td class="chart-27">27</td>
-                            </tr>
+                           
                         </tbody>
                     </table>
                 </div>
