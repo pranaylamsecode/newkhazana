@@ -34,9 +34,6 @@ class HomeController extends Controller
 
         $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
 
-        $jodi_data = Jodi::where('name', $current_date)->first();
-
-        $panel_data  = Panel::where('name', $current_date)->first();
 
         $category_data  = Category::get();
 
@@ -48,6 +45,6 @@ class HomeController extends Controller
 
             // ['News', $news, 'news.index'],
         ];
-        return kview('home', compact('dashboard_cards', 'jodi_data', 'panel_data','category_data'));
+        return kview('home', compact('dashboard_cards', 'category_data','current_date'));
     }
 }

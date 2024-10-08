@@ -21,6 +21,13 @@
 
                 <div class="row">
                     @foreach ($category_data as $categorie)
+
+                    @php 
+       /*  $jodi_data = Jodi::where('name', $current_date)->first();
+
+        $panel_data  = Panel::where('name', $current_date)->first(); */
+
+        @endphp
                         <div class="col-6 mb-2"> <!-- Use Bootstrap's grid system for 2 columns -->
                             <div class="jodi-info"
                                  style="padding: 10px; border: 1px solid #ddd;">
