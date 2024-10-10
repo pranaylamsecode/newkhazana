@@ -3418,6 +3418,10 @@ input[type="submit"].btn-block, input[type="reset"].btn-block, input[type="butto
   align-items: center;
 }
 
+a.nav-link.all_trashed {
+  display: none !important;
+}
+
 .input-group>.custom-file:not(:last-child) .custom-file-label, .input-group>.custom-file:not(:last-child) .custom-file-label::after {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
