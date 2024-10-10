@@ -537,7 +537,7 @@ h3{font-size: 16px;color:#fff; text-shadow: 0px 0px;margin: 0px;padding: 5px;}
                                         });
                                     @endphp
                                     @foreach ($daysOfWeek as $day)
-                                        <td class="chart-{{ $dayData->has($day) ? $dayData[$day]->number : '*' }}">
+                                    <td class="chart-95">
                                             {{ $dayData->has($day) ? $dayData[$day]->number : '*' }}
                                         </td>
                                     @endforeach

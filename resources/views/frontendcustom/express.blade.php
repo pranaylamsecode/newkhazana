@@ -530,7 +530,7 @@ tr td:nth-child(1) {
                                         });
                                     @endphp
                                     @foreach ($daysOfWeek as $day)
-                                        <td class="chart-{{ $dayData->has($day) ? $dayData[$day]->number : '*' }}">
+                                        <td class="chart-95">
                                             {{ $dayData->has($day) ? $dayData[$day]->number : '*' }}
                                         </td>
                                     @endforeach
