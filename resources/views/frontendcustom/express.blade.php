@@ -16,8 +16,8 @@
             text-align: center;
             font-weight: 700;
             font-family: Helvetica, sans-serif;
-            margin: 0;
-            padding: 0;
+           /*  margin: 0;
+            padding: 0; */
         }
 
         .logo {
