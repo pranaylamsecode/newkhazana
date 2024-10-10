@@ -57,14 +57,14 @@
                                     Selected</button>
                             </div>
                         </div>
-                        <div class="float-left">
-                            <input type="hidden" name="page_number" id="page_number" class="page_number"
-                                value="{{ $page_number }}">
-                            <div class="input-group pr-2">
-                                <input type="text" class="form-control search" name="search" id="search"
-                                    placeholder="Search by Name">
+                        <div class="d-flex flex-wrap align-items-center">
+                            <input type="hidden" name="page_number" id="page_number" class="page_number" value="{{ $page_number }}">
+                            
+                            <div class="input-group pr-2 w-100 w-md-auto">
+                                <input type="text" class="form-control search" name="search" id="search" placeholder="Search by Name">
                             </div>
                         </div>
+                        
                         <button class="btn btn-primary pl-2 search_data">Search</button>
                         <button class="btn btn-primary pl-2 reset_data">Reset</button>
                         <div class="float-right">
