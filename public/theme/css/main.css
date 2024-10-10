@@ -14283,3 +14283,10 @@ be a descendant of the grid when it is being dragged.
 
   
 }
+input#search {
+  margin: 4px;
+}
+
+.input-group-prepend {
+  margin: 2px;
+}
