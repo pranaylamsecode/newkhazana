@@ -99,10 +99,10 @@
 
 
             <div class="chart-result">
-                <div>{{ ucwords($categories->name) }}</div>
+                
                 <span>{{ ucwords($categories->desc) }}</span><br />
-                <a href="{{ url()->current() }}">Refresh Result</a>
-            </div>
+                <a href="{{ url()->current() }}">Refresh Result</a><br/>
+            </div><br/>
 
             <div id="top"></div>
             <a href="#bottom" class="button2"> Go to Bottom </a>
@@ -114,7 +114,7 @@
                                 color: #fff;
                                 text-shadow: 0px 0px;
                             ">
-                        KHAJANA JODI CHART
+                         {{ strtoupper($categories->name)  }}  JODI CHART
                     </h2>
                 </div>
                 <div class="panel-body">
@@ -168,11 +168,16 @@
 
 
                     </table>
+
+                   
                 </div>
             </div>
+           
         </div>
+      
         <div class="clear">&nbsp;</div>
     </div>
+    <a href="#bottom" class="button2"> Go to Top </a>
 </body>
 
 </html>

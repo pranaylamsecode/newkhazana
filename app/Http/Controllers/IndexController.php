@@ -50,10 +50,11 @@ class IndexController extends Controller
         $data['current_date']  = $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
 
             $data['all_data_jodies'] =  Jodi::join('category', 'jodis.category_id', '=', 'category.id')
-            ->where('jodis.name', $current_date)
+           /*  ->where('jodis.name', $current_date) */
             ->select('jodis.*', 'category.name as category_name')
             ->get();
             $lastSegment = request()->segment(count(request()->segments()));
+            /* print_r($data['all_data_jodies']);die; */
 
 
             $data['categories'] =   Category::where('name',$lastSegment)->first();
