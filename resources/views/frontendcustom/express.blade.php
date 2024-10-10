@@ -549,7 +549,7 @@
                                         });
                                     @endphp
                                     @foreach ($daysOfWeek as $day)
-                                        <td class="chart-{{ $dayData->has($day) ? $dayData[$day]->number : 'na' }}">
+                                        <td class="chart-{{ $dayData->has($day) ? $dayData[$day]->number : '*' }}">
                                             {{ $dayData->has($day) ? $dayData[$day]->number : '*' }}
                                         </td>
                                     @endforeach
