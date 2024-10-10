@@ -1538,7 +1538,7 @@
             <div>
                 <h4>{{ $categorie->name ?? 'N/A' }}</h4>
                 <span>{{ $categorie->desc ?? 'N/A' }}</span>
-                <p>{{ $categorie->start_time }} &nbsp;&nbsp; {{ $categorie->end_time }}</p>
+                <p> {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)->format('h:i A') }} &nbsp;&nbsp;   {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->end_time)->format('h:i A') }} </p>
                 <a href="{{ url('jodi/' . $categorie->name) }}" class="result_timing_b result_btn_chart">Jodi</a>
                 <a href="{{ url('panel/' . $categorie->name) }}"
                     class="result_timing_b_right result_btn_chart">Panel</a>
