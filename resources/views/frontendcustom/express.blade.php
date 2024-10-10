@@ -514,8 +514,8 @@
                     <table style="width: 100%; text-align: center" class="panel-chart chart-table" cellpadding="2">
                         <thead>
                             <tr>
-                                <th>Date</th>
-                                <th>Mo</th>
+                                <th>Date (Week Range)</th>
+                                <th>Mon</th>
                                 <th>Tue</th>
                                 <th>Wed</th>
                                 <th>Thu</th>
@@ -524,20 +524,42 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($all_data_jodies as $all_data_jodie)
+                            @php
+                                $weeks = [];
+                                // Group data by week
+                                foreach ($all_data_jodies as $data) {
+                                    $week = \Carbon\Carbon::parse($data->name)->weekOfYear;
+                                    $weeks[$week][] = $data;
+                                }
+                            @endphp
+
+                            @foreach ($weeks as $weekData)
+                                @php
+                                    // Get the start and end date of the week
+                                    $firstDayOfWeek = \Carbon\Carbon::parse($weekData[0]->name)->startOfWeek();
+                                    $lastDayOfWeek = $firstDayOfWeek->copy()->addDays(5); // Up to Saturday
+                                    $weekRange = $firstDayOfWeek->format('M d') . ' - ' . $lastDayOfWeek->format('M d');
+                                @endphp
                                 <tr>
-                                    <td class="chart-95">{{ $all_data_jodie->name }}</td>
-                                    <td class="chart-95">{{ $all_data_jodie->number }}</td>
-                                    <td class="chart-84">{{ $all_data_jodie->number }}</td>
-                                    <td class="chart-98">{{ $all_data_jodie->number }}</td>
-                                    <td class="chart-97">{{ $all_data_jodie->number }}</td>
-                                    <td class="chart-91">{{ $all_data_jodie->number }}</td>
-                                    <td class="chart-78">{{ $all_data_jodie->number }}</td>
+                                    <td class="chart-95">{{ $weekRange }}</td>
+                                    @php
+                                        $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                                        $dayData = collect($weekData)->keyBy(function ($item) {
+                                            return \Carbon\Carbon::parse($item->name)->format('D');
+                                        });
+                                    @endphp
+                                    @foreach ($daysOfWeek as $day)
+                                        <td class="chart-{{ $dayData->has($day) ? $dayData[$day]->number : 'na' }}">
+                                            {{ $dayData->has($day) ? $dayData[$day]->number : '*' }}
+                                        </td>
+                                    @endforeach
                                 </tr>
                             @endforeach
-
-
                         </tbody>
+
+
+
+
                     </table>
                 </div>
             </div>
