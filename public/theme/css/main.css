@@ -14249,3 +14249,35 @@ be a descendant of the grid when it is being dragged.
 .user .user-settings label {
   color: #666;
 }
+
+
+@media (max-width: 768px) {
+  .card-header {
+      display: flex;
+      flex-direction: column; /* Stack items vertically */
+      align-items: flex-start; /* Align items to the start */
+  }
+
+  .bulk_select_btn {
+      margin-bottom: 0.5rem; /* Add space between buttons */
+  }
+
+  .input-group {
+      width: 100%; /* Make input groups full width */
+  }
+
+  .input-group-prepend label {
+      min-width: 50px; /* Minimum width for row limit label */
+  }
+
+  .float-right {
+      width: 100%; /* Make float-right section full width */
+      margin-top: 1rem; /* Add space above this section */
+      text-align: left; /* Align text to the left */
+  }
+
+  .btn {
+      width: 100%; /* Make buttons full width */
+      margin-bottom: 0.5rem; /* Space between buttons */
+  }
+}

@@ -2,51 +2,46 @@
     @php
         $record_id = $offset;
     @endphp
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                {{-- <th width="10px">
-                    <input type="checkbox" name="row_check_all" class="row_check_all">
-                </th> --}}
-                <th>Name</th>
-                <th>Desc</th>
-                <th>Start Time</th>
-                <th>End Time</th>
-                <th>Status</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($data as $v)
-                <tr class="row_{{ $v->id }}">
-                    <td>{{ $v->name }}</td>
-                    <td>{{ $v->desc ?? '' }}</td>
-                    <td>{{ $v->start_time ?? '' }}</td>
-                    <td>{{ $v->end_time ?? '' }}</td>
-
-                    <td>
-                        @if ($v->status == 1)
-                            <span style="color: green;">●</span> {{-- Green dot for status 1 --}}
-                        @else
-                            <span style="color: red;">●</span> {{-- Red dot for any other status --}}
-                        @endif
-                    </td>
-
-
-
-
-
-                    <td>
-                        <a href="#" data-id="{{ $v->id }}"
-                            class="btn btn-danger delete_btn delete{{ $v->id }} btn-sm">Delete</a>
-                    </td>
+    <div class="table-responsive" style="overflow-y: auto; max-height: 400px;">
+        <table class="table table-hover mb-0">
+            <thead>
+                <tr>
+                    {{-- <th width="10px">
+                        <input type="checkbox" name="row_check_all" class="row_check_all">
+                    </th> --}}
+                    <th>Name</th>
+                    <th>Desc</th>
+                    <th>Start Time</th>
+                    <th>End Time</th>
+                    <th>Status</th>
+                    <th>Action</th>
                 </tr>
-                <?php $page_number++; ?>
-            @endforeach
-        <tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach ($data as $v)
+                    <tr class="row_{{ $v->id }}">
+                        <td>{{ $v->name }}</td>
+                        <td>{{ $v->desc ?? '' }}</td>
+                        <td>{{ $v->start_time ?? '' }}</td>
+                        <td>{{ $v->end_time ?? '' }}</td>
+                        <td>
+                            @if ($v->status == 1)
+                                <span style="color: green;">●</span> {{-- Green dot for status 1 --}}
+                            @else
+                                <span style="color: red;">●</span> {{-- Red dot for any other status --}}
+                            @endif
+                        </td>
+                        <td>
+                            <a href="#" data-id="{{ $v->id }}" class="btn btn-danger delete_btn delete{{ $v->id }} btn-sm">Delete</a>
+                        </td>
+                    </tr>
+                    <?php $page_number++; ?>
+                @endforeach
+            </tbody>
+        </table>
+    </div>
 @else
-    <div class="alert alert-warning" align="center">
+    <div class="alert alert-warning text-center">
         Opps, seems like records not available.
     </div>
 @endif
@@ -64,65 +59,3 @@
         </div>
     </div>
 @endif
-<?php
-function paginate_function($item_per_page, $current_page, $total_records, $total_pages)
-{
-    $pagination = '';
-    if ($total_pages > 0 && $total_pages != 1 && $current_page <= $total_pages) {
-        //verify total pages and current page number
-        $right_links = $current_page + 3;
-        $previous = $current_page - 3; //previous link
-        $next = $current_page + 1; //next link
-        $first_link = true; //boolean var to decide our first link
-
-        if ($current_page > 1) {
-            $previous_link = $previous <= 0 ? 1 : $previous;
-            $pagination .= '<li class="page-item "><a class="paginate_link page-link"  href="#" aria-controls="datatable1" data-page="1" title="First">&laquo;</a></li>'; //first link
-            $pagination .= '<li class="page-item "><a class="paginate_link page-link"  href="#" aria-controls="datatable1" data-page="' . $previous_link . '" title="Previous">&lt;</a></li>'; //previous link
-            for ($i = $current_page - 2; $i < $current_page; $i++) {
-                //Create left-hand side links
-                if ($i > 0) {
-                    $pagination .= '<li class="page-item "><a class="paginate_link page-link"  href="#" data-page="' . $i . '" aria-controls="datatable1" title="Page' . $i . '">' . $i . '</a></li>';
-                }
-            }
-            $first_link = false; //set first link to false
-        }
-
-        if ($first_link) {
-            //if current active page is first link
-            $pagination .=
-                '<li class="page-item active">
-        <a class="paginate_link page-link" aria-controls="datatable1">' .
-                $current_page .
-                '</a></li>';
-        } elseif ($current_page == $total_pages) {
-            //if it's the last active link
-            $pagination .=
-                '<li class="page-item active">
-        <a class="paginate_link page-link" aria-controls="datatable1">' .
-                $current_page .
-                '</a></li>';
-        } else {
-            //regular current link
-            $pagination .=
-                '<li class="page-item active">
-        <a class="paginate_link page-link" aria-controls="datatable1">' .
-                $current_page .
-                '</a></li>';
-        }
-
-        for ($i = $current_page + 1; $i < $right_links; $i++) {
-            //create right-hand side links
-            if ($i <= $total_pages) {
-                $pagination .= '<li class="page-item "><a class="paginate_link page-link" href="#" aria-controls="datatable1" data-page="' . $i . '" title="Page ' . $i . '">' . $i . '</a></li>';
-            }
-        }
-        if ($current_page < $total_pages) {
-            $next_link = $i > $total_pages ? $total_pages : $i;
-            $pagination .= '<li class="page-item "><a class="paginate_link page-link" href="#" aria-controls="datatable1" data-page="' . $next_link . '" title="Next">&gt;</a></li>'; //next link
-            $pagination .= '<li class="page-item "><a class="paginate_link page-link" href="#" aria-controls="datatable1" data-page="' . $total_pages . '" title="Last">&raquo;</a></li>'; //last link
-        }
-    }
-    return $pagination; //return pagination links
-}
-?>
