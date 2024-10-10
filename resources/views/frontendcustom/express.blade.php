@@ -89,23 +89,215 @@
             padding: 5px;
             text-align: center;
         }
+
+        .chart-result {
+    margin: 6px 2px;
+    line-height: 1.4;
+    font-size: 14px;
+    padding: 4px 10px;
+    color: #00094d;
+    text-shadow: 1px 1px 2px #fff;
+    box-shadow: 0 0 20px 0 rgb(0 0 0 / 40%);
+    border: 1px solid black;
+}
+
+.chart-result div {
+    font-size: 22px;
+    color: #00094d;
+    text-shadow: 1px 1px 2px #fff;
+}
+
+.chart-result span {
+    color: #880e4f;
+    text-shadow: 1px 1px 2px #ffe2c6;
+    font-size: 21px;
+}
+
+.chart-result a {
+    border: 1px solid #e6e6e6;
+    background: #522f92;
+    color: #fff;
+    padding: 5px 7px;
+    font-size: 12px;
+    margin: 2px 0 -1px;
+    display: inline-block;
+    transition: all 0.3s;
+    cursor: pointer;
+    text-shadow: none;
+    text-decoration: none;
+}
+
+.chart-h1 {
+    background: #ff00a2;
+    padding: 5px 10px;
+    text-shadow: 1px 1px 2px #000;
+    display: block;
+    color: #fff8f8;
+    margin-bottom: 3px;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border: 2px solid #fff;
+    transform-style: preserve-3d;
+    transition: transform 150ms cubic-bezier(0, 0, 0.58, 1),
+                background 150ms cubic-bezier(0, 0, 0.58, 1);
+    font-size: 18px;
+    margin: 3px 0px;
+}
+
+.panel.panel-info {
+    border: 1px solid #3f51b5;
+    width: 50%;
+    margin: 0 auto 0;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+th {
+    display: table-cell;
+    vertical-align: inherit;
+    font-weight: bold;
+    text-align: -internal-center;
+    unicode-bidi: isolate;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    unicode-bidi: isolate;
+    border-color: inherit;
+}
+
+thead {
+    background-color: #ffc107;
+    text-shadow: 1px 1px 2px #9a7400ab;
+}
+
+table, th, td {
+    border: 1px solid #000;
+}
+
+table, th, td {
+    border: 1px solid #000;
+}
+
+
+@media only screen and (max-width: 500px) {
+            .chart-list {
+                width: 95%;
+            }
+        }
+
+        @media only screen and (max-width: 770px) {
+            .panel.panel-info {
+                width: 70%;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .panel.panel-info {
+                width: 100%;
+            }
+        }
+
+        .r {
+            color: red;
+        }
+        @media only screen and (max-width: 500px) {
+            .chart-list {
+                width: 95%;
+            }
+        }
+
+        @media screen and (max-width: 400px) {
+            .logo img {
+                height: 60px;
+                width: auto;
+                max-width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 300px) {
+            .logo img {
+                height: 40px;
+                width: auto;
+                max-width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 770px) {
+            .chart-faq {
+                width: 70%;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .chart-faq {
+                width: 100%;
+            }
+        }
+
+        @media only screen and (max-width: 500px) {
+            .chart-list {
+                width: 95%;
+            }
+        }
+
+
+        html {
+    scroll-behavior: smooth;
+}
+
+:root {
+    view-transition-name: root;
+}
+
+html {
+    display: block;
+}
+
+.button2 {
+    background-color: #a0d5ff;
+    color: #220c82;
+    padding: 10px 30px;
+    font-size: 14px;
+    margin: 0px 0px 5px 0px;
+    border: 2px solid #0000005c;
+    font-weight: 800;
+    text-decoration: none;
+    text-shadow: 1px 1px #00bcd4;
+    box-shadow: 0 8px 10px 0 rgba(0, 0, 0, 0.2),
+                0 6px 8px 0 rgba(0, 0, 0, 0.19);
+    display: inline-block;
+    transition: all 0.3s;
+}
+
+div {
+    display: block;
+    unicode-bidi: isolate;
+}
     </style>
 </head>
 
 <body>
     <div class="container-fluid">
         <div>
-            <h1 class="chart-h1">{{ ucwords($categories->name) }}</h1>
+            <h1 class="chart-h1">{{ ucwords($categories->name) }} JODI CHART</h1>
 
-
+            
             <div class="chart-result">
-                
+                <div>{{ ucwords($categories->name) }}</div>
                 <span>{{ ucwords($categories->desc) }}</span><br />
                 <a href="{{ url()->current() }}">Refresh Result</a><br/>
             </div><br/>
 
+            <a href="#bottom" class="button2 m-2"> Go to Bottom </a> <br/>
+
             <div id="top"></div>
-            <a href="#bottom" class="button2"> Go to Bottom </a>
+           
             <div class="panel panel-info">
                 <div class="panel-heading text-center" style="background: #3f51b5">
                     <h2
@@ -174,10 +366,10 @@
             </div>
            
         </div>
-      
+        <div id="bottom"></div>
         <div class="clear">&nbsp;</div>
     </div>
-    <a href="#bottom" class="button2"> Go to Top </a>
+    <a href="#top" class="button2"> Go to Top </a>
 </body>
 
 </html>
