@@ -279,13 +279,22 @@ div {
     display: block;
     unicode-bidi: isolate;
 }
+
+tbody td {
+    padding: 5px 0;
+    font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+tr td:nth-child(1) {
+    font-size: 13px;
+}
     </style>
 </head>
 
 <body>
     <div class="container-fluid">
         <div>
-            <h1 class="chart-h1">{{ ucwords($categories->name) }} JODI CHART</h1>
+            <h1 class="chart-h1">{{ strtoupper($categories->name) }} JODI CHART</h1>
 
             
             <div class="chart-result">
@@ -313,7 +322,7 @@ div {
                     <table style="width: 100%; text-align: center" class="panel-chart chart-table" cellpadding="2">
                         <thead>
                             <tr>
-                                <th>Date (Week Range)</th>
+                                <th>Date</th>
                                 <th>Mon</th>
                                 <th>Tue</th>
                                 <th>Wed</th>
@@ -337,10 +346,11 @@ div {
                                     // Get the start and end date of the week
                                     $firstDayOfWeek = \Carbon\Carbon::parse($weekData[0]->name)->startOfWeek();
                                     $lastDayOfWeek = $firstDayOfWeek->copy()->addDays(5); // Up to Saturday
-                                    $weekRange = $firstDayOfWeek->format('M d') . ' - ' . $lastDayOfWeek->format('M d');
+                                    $weekRange = $firstDayOfWeek->format('d-m-Y');
+                                    $weekRange2 = $lastDayOfWeek->format('d-m-Y');
                                 @endphp
                                 <tr>
-                                    <td class="chart-95">{{ $weekRange }}</td>
+                                    <td class="chart-95">{{ $weekRange }} <br/> To <br/>{{ $weekRange2 }}</td>
                                     @php
                                         $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                                         $dayData = collect($weekData)->keyBy(function ($item) {

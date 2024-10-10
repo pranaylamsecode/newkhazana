@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>JODI CHART RECORD SATTA MATKA</title>
+    <title>PANEL CHART RECORD SATTA MATKA</title>
     <meta name="description"
         content="KHAJANA CHART MATKA BAZAR CHART RECORD LIVE KHAJANA MATKA CHARTS RECORD WITH JODIES PANNA KHAJANA PATTI OLD MATKA RECORD MATKA JODI RECORD SATTA HISTORY" />
     <link rel="canonical" href="khajana.html" />
@@ -280,11 +280,13 @@ div {
     unicode-bidi: isolate;
 }
 
-tr {
-    display: table-row;
-    vertical-align: inherit;
-    unicode-bidi: isolate;
-    border-color: inherit;
+tbody td {
+    padding: 5px 0;
+    font-family: "Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+}
+
+tr td:nth-child(1) {
+    font-size: 13px;
 }
     </style>
 </head>
@@ -292,7 +294,7 @@ tr {
 <body>
     <div class="container-fluid">
         <div>
-            <h1 class="chart-h1">{{ strtoupper($categories->name) }} PANEL  CHART</h1>
+            <h1 class="chart-h1">{{ strtoupper($categories->name) }} PANEL CHART</h1>
 
             
             <div class="chart-result">
@@ -313,14 +315,14 @@ tr {
                                 color: #fff;
                                 text-shadow: 0px 0px;
                             ">
-                         {{ strtoupper($categories->name)  }}  PANEL  CHART
+                         {{ strtoupper($categories->name)  }}  PANEL CHART
                     </h2>
                 </div>
                 <div class="panel-body">
                     <table style="width: 100%; text-align: center" class="panel-chart chart-table" cellpadding="2">
                         <thead>
                             <tr>
-                                <th>Date (Week Range)</th>
+                                <th>Date</th>
                                 <th>Mon</th>
                                 <th>Tue</th>
                                 <th>Wed</th>
@@ -344,10 +346,11 @@ tr {
                                     // Get the start and end date of the week
                                     $firstDayOfWeek = \Carbon\Carbon::parse($weekData[0]->name)->startOfWeek();
                                     $lastDayOfWeek = $firstDayOfWeek->copy()->addDays(5); // Up to Saturday
-                                    $weekRange = $firstDayOfWeek->format('M d') . ' - ' . $lastDayOfWeek->format('M d');
+                                    $weekRange = $firstDayOfWeek->format('d-m-Y');
+                                    $weekRange2 = $lastDayOfWeek->format('d-m-Y');
                                 @endphp
                                 <tr>
-                                    <td class="chart-95">{{ $weekRange }}</td>
+                                    <td class="chart-95">{{ $weekRange }} <br/> To <br/>{{ $weekRange2 }}</td>
                                     @php
                                         $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                                         $dayData = collect($weekData)->keyBy(function ($item) {
