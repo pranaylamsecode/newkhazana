@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>KHAJANA JODI CHART RECORD SATTA MATKA SPBOSS</title>
+    <title> JODI CHART RECORD SATTA MATKA</title>
     <meta name="description"
         content="KHAJANA CHART MATKA BAZAR CHART RECORD LIVE KHAJANA MATKA CHARTS RECORD WITH JODIES PANNA KHAJANA PATTI OLD MATKA RECORD MATKA JODI RECORD SATTA HISTORY" />
     <link rel="canonical" href="khajana.html" />
@@ -262,7 +262,7 @@
         }
 
         .red,
-      
+
 
         @media only screen and (max-width: 770px) {
             .panel.panel-info {
@@ -488,12 +488,12 @@
 
     <div class="container-fluid">
         <div>
-            <h1 class="chart-h1">KHAJANA JODI CHART</h1>
+            <h1 class="chart-h1">{{ ucwords($categories->name) }}</h1>
 
 
             <div class="chart-result">
-                <div>KHAJANA</div>
-                <span>250-71-579</span><br />
+                <div>{{ ucwords($categories->name) }}</div>
+                <span>{{ ucwords($categories->desc) }}</span><br />
                 <a href="{{ url()->current() }}">Refresh Result</a>
             </div>
 
@@ -514,6 +514,7 @@
                     <table style="width: 100%; text-align: center" class="panel-chart chart-table" cellpadding="2">
                         <thead>
                             <tr>
+                                <th>Date</th>
                                 <th>Mo</th>
                                 <th>Tue</th>
                                 <th>Wed</th>
@@ -523,15 +524,19 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td class="chart-95">95</td>
-                                <td class="chart-84">84</td>
-                                <td class="chart-98">98</td>
-                                <td class="chart-97">97</td>
-                                <td class="chart-91">91</td>
-                                <td class="chart-78">78</td>
-                            </tr>
-                           
+                            @foreach ($all_data_jodies as $all_data_jodie)
+                                <tr>
+                                    <td class="chart-95">{{ $all_data_jodie->name }}</td>
+                                    <td class="chart-95">{{ $all_data_jodie->number }}</td>
+                                    <td class="chart-84">{{ $all_data_jodie->number }}</td>
+                                    <td class="chart-98">{{ $all_data_jodie->number }}</td>
+                                    <td class="chart-97">{{ $all_data_jodie->number }}</td>
+                                    <td class="chart-91">{{ $all_data_jodie->number }}</td>
+                                    <td class="chart-78">{{ $all_data_jodie->number }}</td>
+                                </tr>
+                            @endforeach
+
+
                         </tbody>
                     </table>
                 </div>

@@ -53,7 +53,10 @@ class IndexController extends Controller
             ->where('jodis.name', $current_date)
             ->select('jodis.*', 'category.name as category_name')
             ->get();
-            $data['categories'] =   Category::get();
+            $lastSegment = request()->segment(count(request()->segments()));
+
+
+            $data['categories'] =   Category::where('name',$lastSegment)->first();
 
 
         return view('frontendcustom.express', $data);
