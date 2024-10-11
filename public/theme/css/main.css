@@ -14281,7 +14281,7 @@ be a descendant of the grid when it is being dragged.
       margin-bottom: 0.5rem; /* Space between buttons */
   }
 
-  
+
 }
 input#search {
   margin: 4px;
@@ -14298,4 +14298,3 @@ input#search {
   margin-right: auto;
   margin-left: auto;
 }
-
