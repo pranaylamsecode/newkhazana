@@ -48,6 +48,11 @@ $menu = [
                 'icon' => 'fa fa-circle-o',
                 'route' => 'admin.settings.edit_profile',
             ],
+            2 => [
+                'name' => 'Clear Cache',
+                'icon' => 'fa fa-circle-o',
+                'route' => 'clear.laravel.cache',
+            ],
         ],
     ],
 ];

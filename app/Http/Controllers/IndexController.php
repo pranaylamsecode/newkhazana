@@ -7,6 +7,7 @@ use App\Models\Jodi;
 use App\Models\Panel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Artisan;
 
 class IndexController extends Controller
 {
@@ -83,6 +84,23 @@ class IndexController extends Controller
         return view('frontendcustom.mahal', $data);
     }
 
+
+    public function clearLaravelCache()
+    {
+        // Clear application cache
+        Artisan::call('cache:clear');
+
+        // Clear route cache
+        Artisan::call('route:clear');
+
+        // Clear config cache
+        Artisan::call('config:clear');
+
+        // Clear view cache
+        Artisan::call('view:clear');
+
+        return redirect()->back()->with('success', 'Application cache cleared!');
+    }
 
 
 }

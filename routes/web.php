@@ -21,6 +21,11 @@ Route::get('jodi/{category_name}', 'IndexController@jodiDisplay');
 
 Route::get('panel/{category_name}', 'IndexController@PanelDisplay');
 
+Route::get('/clear-laravel-cache','IndexController@clearLaravelCache')->name('clear.laravel.cache');
+
+
+Route::get('/clear-cache','IndexController@clearLaravelCache');
+
 Auth::routes([
   'register' => false, // Registration Routes...
   'reset' => false, // Password Reset Routes...
