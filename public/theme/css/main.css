@@ -14298,3 +14298,17 @@ input#search {
   margin-right: auto;
   margin-left: auto;
 }
+
+
+.app-header__logo {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 0 auto;
+  flex: 1 0 auto;
+  color: #fff;
+  text-align: center;
+  font-family: 'Roboto';
+  padding: 0 15px;
+  font-size: 19px;
+  font-weight: 400;
+  line-height: 50px;
+}
