@@ -608,12 +608,20 @@ pre code {
     .container {
         max-width: 540px;
     }
+    .app-content {
+      margin-left: 0px  !important;
+      margin-top: 0px !important;
+  }
 }
 
 @media (min-width: 768px) {
     .container {
         max-width: 720px;
     }
+    .app-content {
+      margin-left: 0px  !important;
+      margin-top: 0px !important;
+  }
 }
 
 @media (min-width: 992px) {
