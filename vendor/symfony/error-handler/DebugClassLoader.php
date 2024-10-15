@@ -21,7 +21,6 @@ use PHPUnit\Framework\MockObject\MockObject;
 use Prophecy\Prophecy\ProphecySubjectInterface;
 use ProxyManager\Proxy\ProxyInterface;
 use Symfony\Component\ErrorHandler\Internal\TentativeTypes;
-use Symfony\Component\HttpClient\HttplugClient;
 
 /**
  * Autoloader checking if the class is really defined in the file found.
@@ -301,7 +300,7 @@ class DebugClassLoader
         $this->checkClass($class, $file);
     }
 
-    private function checkClass(string $class, ?string $file = null): void
+    private function checkClass(string $class, string $file = null): void
     {
         $exists = null === $file || class_exists($class, false) || interface_exists($class, false) || trait_exists($class, false);
 
@@ -415,9 +414,7 @@ class DebugClassLoader
             if (!isset(self::$checkedClasses[$use])) {
                 $this->checkClass($use);
             }
-            if (isset(self::$deprecated[$use]) && strncmp($vendor, str_replace('_', '\\', $use), $vendorLen) && !isset(self::$deprecated[$class])
-                && !(HttplugClient::class === $class && \in_array($use, [\Http\Client\HttpClient::class, \Http\Message\RequestFactory::class, \Http\Message\StreamFactory::class, \Http\Message\UriFactory::class], true))
-            ) {
+            if (isset(self::$deprecated[$use]) && strncmp($vendor, str_replace('_', '\\', $use), $vendorLen) && !isset(self::$deprecated[$class])) {
                 $type = class_exists($class, false) ? 'class' : (interface_exists($class, false) ? 'interface' : 'trait');
                 $verb = class_exists($use, false) || interface_exists($class, false) ? 'extends' : (interface_exists($use, false) ? 'implements' : 'uses');
 
@@ -763,7 +760,7 @@ class DebugClassLoader
         return $ownInterfaces;
     }
 
-    private function setReturnType(string $types, string $class, string $method, string $filename, ?string $parent, ?\ReflectionType $returnType = null): void
+    private function setReturnType(string $types, string $class, string $method, string $filename, ?string $parent, \ReflectionType $returnType = null): void
     {
         if ('__construct' === $method) {
             return;
@@ -1097,7 +1094,7 @@ EOTXT;
         $braces = 0;
         for (; $i < $end; ++$i) {
             if (!$inClosure) {
-                $inClosure = false !== strpos($code[$i], 'function (');
+                $inClosure = str_contains($code[$i], 'function (');
             }
 
             if ($inClosure) {
