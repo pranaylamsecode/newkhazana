@@ -1555,7 +1555,7 @@
         @foreach ($categories as $categorie)
             @php
 
-                $jodi = App\Models\Jodi::where('category_id', $categorie->category_id)
+                $jodi = App\Models\Jodi::where('category_id', $categorie->id)
                     ->where('name', $current_date)
                     ->first();
 
