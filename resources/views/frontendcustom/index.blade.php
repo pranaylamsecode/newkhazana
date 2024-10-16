@@ -1537,6 +1537,38 @@
         img.img-resposive {
             width: 100%;
         }
+
+        @keyframes lightning {
+            0% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff0, 0 0 20px #ff0, 0 0 25px #ff0;
+            }
+
+            25% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #ff0, 0 0 15px #ff0, 0 0 25px #ff0, 0 0 30px #ff0;
+            }
+
+            50% {
+                text-shadow: 0 0 10px #fff, 0 0 20px #ff0, 0 0 25px #ff0, 0 0 40px #ff0, 0 0 50px #ff0;
+            }
+
+            75% {
+                text-shadow: 0 0 15px #fff, 0 0 30px #ff0, 0 0 35px #ff0, 0 0 50px #ff0, 0 0 60px #ff0;
+            }
+
+            100% {
+                text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff0, 0 0 20px #ff0, 0 0 25px #ff0;
+            }
+        }
+
+        h4 {
+            color: #fff;
+            /* White text */
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            animation: lightning 1.5s infinite alternate;
+            text-align: center;
+        }
     </style>
 
 
@@ -1550,7 +1582,11 @@
         <p style="color: black;display: inline-block;font-size: 16px;">{{ $front_title }}</p>
     </div>
 
-    <img class="img-resposive" src="{{ asset('storage/' . $path) }}" />
+    @if (!empty($path))
+        <img class="img-resposive" src="{{ asset('storage/' . $path) }}" />
+    @endif
+
+
 
     <h4 class="banner">WORLD ME SABSE FAST SATTA MATKA RESULT</h4>
 
