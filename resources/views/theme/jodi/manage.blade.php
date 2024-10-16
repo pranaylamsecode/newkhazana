@@ -67,7 +67,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="left_number">Left Number</label>
-                                            <input type="text" name="left_number" class="form-control" id="left_number"
+                                            <input type="number" name="left_number" class="form-control" id="left_number"
                                                 aria-describedby="taglineHelp">
                                             <small id="taglineHelp" class="form-text text-muted"></small>
                                         </div>
@@ -83,7 +83,7 @@
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label for="right_number">Right Number</label>
-                                            <input type="text" name="right_number" class="form-control" id="right_number"
+                                            <input type="number" name="right_number" class="form-control" id="right_number"
                                                 aria-describedby="taglineHelp" disabled>
                                             <small id="taglineHelp" class="form-text text-muted"></small>
                                         </div>
@@ -118,24 +118,24 @@
                 const leftNumber = leftNumberInput.value;
                 const rightNumber = rightNumberInput.value;
 
-                // Initialize empty strings for sums
-                let leftSum = '';
-                let rightSum = '';
+                // Initialize empty strings for last digits
+                let leftLastDigit = '';
+                let rightLastDigit = '';
 
-                // Calculate the sum of digits for the left number, only if it exists
+                // Calculate the sum of digits for the left number, only if it exists, and get the last digit
                 if (leftNumber) {
                     const sumLeft = leftNumber.split('').reduce((sum, digit) => sum + parseInt(digit), 0);
-                    leftSum = sumLeft !== 0 ? sumLeft.toString() : ''; // Only add if sumLeft is not zero
+                    leftLastDigit = (sumLeft % 10).toString(); // Get the last digit
                 }
 
-                // Calculate the sum of digits for the right number, only if it exists
+                // Calculate the sum of digits for the right number, only if it exists, and get the last digit
                 if (rightNumber) {
                     const sumRight = rightNumber.split('').reduce((sum, digit) => sum + parseInt(digit), 0);
-                    rightSum = sumRight !== 0 ? sumRight.toString() : ''; // Only add if sumRight is not zero
+                    rightLastDigit = (sumRight % 10).toString(); // Get the last digit
                 }
 
-                // Combine non-zero sums into the center_value field
-                centerValueInput.value = leftSum + rightSum;
+                // Combine non-zero last digits into the center_value field
+                centerValueInput.value = leftLastDigit + rightLastDigit;
             }
 
             // Enable right_number only when left_number has a value
@@ -152,4 +152,5 @@
             rightNumberInput.addEventListener('input', calculateAndUpdate);
         });
     </script>
+
 @endsection
