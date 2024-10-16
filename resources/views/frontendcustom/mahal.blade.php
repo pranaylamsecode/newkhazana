@@ -959,14 +959,14 @@
                                         <td class="chart-95">
 
 
-                                            @if ($dayData->has($day))
+                                            @if ($dayData->has($day) && !empty($dayData[$day]->left_number) && !empty($dayData[$day]->right_number))
                                                 {{-- If left_number exists, display it along with the sum of digits --}}
                                                 {{ $dayData[$day]->left_number ? $dayData[$day]->left_number . '-' . array_sum(str_split($dayData[$day]->left_number)) % 10 : '' }}
 
                                                 {{-- If right_number exists, display the sum of digits and the number --}}
                                                 {{ $dayData[$day]->right_number ? array_sum(str_split($dayData[$day]->right_number)) % 10 . '-' . $dayData[$day]->right_number : '' }}
                                             @else
-                                                '*'
+                                                *
                                             @endif
                                         </td>
                                     @endforeach

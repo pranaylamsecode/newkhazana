@@ -99,9 +99,9 @@ class IndexController extends Controller
         $data = array();
         $data['current_date']  = $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
 
-            $data['all_data_jodies'] =  Panel::join('category', 'panels.category_id', '=', 'category.id')
+            $data['all_data_jodies'] =  Jodi::join('category', 'jodis.category_id', '=', 'category.id')
            /*  ->where('jodis.name', $current_date) */
-            ->select('panels.*', 'category.name as category_name')
+            ->select('jodis.*', 'category.name as category_name')
             ->get();
             $lastSegment = request()->segment(count(request()->segments()));
             /* print_r($data['all_data_jodies']);die; */
