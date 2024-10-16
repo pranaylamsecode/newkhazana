@@ -943,7 +943,17 @@
                                     @endphp
                                     @foreach ($daysOfWeek as $day)
                                         <td class="chart-95">
-                                            {{ $dayData->has($day) ? $dayData[$day]->number : '*' }}
+
+                                            @if ($dayData->has($day))
+                                                {{-- If left_number exists, display it along with the sum of digits --}}
+                                                {{ $dayData[$day]->left_number ? array_sum(str_split($dayData[$day]->left_number)) % 10 : '' }}
+
+                                                {{-- If right_number exists, display the sum of digits and the number --}}
+                                                {{ $dayData[$day]->right_number ? array_sum(str_split($dayData[$day]->right_number)) % 10 : '' }}
+                                            @else
+                                                '*'
+                                            @endif
+
                                         </td>
                                     @endforeach
                                 </tr>
