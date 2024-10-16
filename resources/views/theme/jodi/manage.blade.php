@@ -66,26 +66,25 @@
                                 <div class="row p-2">
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="tagline">Left Number </label>
+                                            <label for="left_number">Left Number</label>
                                             <input type="text" name="left_number" class="form-control" id="left_number"
                                                 aria-describedby="taglineHelp">
                                             <small id="taglineHelp" class="form-text text-muted"></small>
                                         </div>
                                     </div>
-                                    <div class="col-md-4 ">
+                                    <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="tagline">Center</label>
+                                            <label for="center_value">Center</label>
                                             <input type="text" name="" class="form-control" id="center_value"
                                                 aria-describedby="taglineHelp" readonly>
                                             <small id="taglineHelp" class="form-text text-muted"></small>
                                         </div>
                                     </div>
-
                                     <div class="col-md-4">
                                         <div class="form-group">
-                                            <label for="tagline">Right Number </label>
+                                            <label for="right_number">Right Number</label>
                                             <input type="text" name="right_number" class="form-control" id="right_number"
-                                                aria-describedby="taglineHelp">
+                                                aria-describedby="taglineHelp" disabled>
                                             <small id="taglineHelp" class="form-text text-muted"></small>
                                         </div>
                                     </div>
@@ -108,4 +107,49 @@
             </div>
         </div>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const leftNumberInput = document.getElementById('left_number');
+            const rightNumberInput = document.getElementById('right_number');
+            const centerValueInput = document.getElementById('center_value');
+
+            function calculateAndUpdate() {
+                // Get the input values
+                const leftNumber = leftNumberInput.value;
+                const rightNumber = rightNumberInput.value;
+
+                // Initialize empty strings for sums
+                let leftSum = '';
+                let rightSum = '';
+
+                // Calculate the sum of digits for the left number, only if it exists
+                if (leftNumber) {
+                    const sumLeft = leftNumber.split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+                    leftSum = sumLeft !== 0 ? sumLeft.toString() : ''; // Only add if sumLeft is not zero
+                }
+
+                // Calculate the sum of digits for the right number, only if it exists
+                if (rightNumber) {
+                    const sumRight = rightNumber.split('').reduce((sum, digit) => sum + parseInt(digit), 0);
+                    rightSum = sumRight !== 0 ? sumRight.toString() : ''; // Only add if sumRight is not zero
+                }
+
+                // Combine non-zero sums into the center_value field
+                centerValueInput.value = leftSum + rightSum;
+            }
+
+            // Enable right_number only when left_number has a value
+            leftNumberInput.addEventListener('input', function() {
+                if (leftNumberInput.value) {
+                    rightNumberInput.disabled = false;
+                } else {
+                    rightNumberInput.disabled = true;
+                    centerValueInput.value = ''; // Clear center value if left number is removed
+                }
+                calculateAndUpdate();
+            });
+
+            rightNumberInput.addEventListener('input', calculateAndUpdate);
+        });
+    </script>
 @endsection
