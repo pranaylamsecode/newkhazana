@@ -1518,8 +1518,8 @@
             padding: 5px;
         }
     </style>
-    
-    
+
+
 </head>
 
 <body>
@@ -1576,10 +1576,10 @@
                 Please Quit Our Site Right Now. Copying Promoting Publishing Any of Our Content in Any Type Of Media or
                 Other Source is Illegal and against Law</p>
         </div>
-        <h6 class="pby_us">POWERD BY WorldInfo</h6>
+       {{--  <h6 class="pby_us">POWERD BY WorldInfo</h6> --}}
         <div class="ftr_sm">
             <p> &copy; 2024 - 2025 <br>
-                
+
                 {{-- <a href="sitemap.xml">Sitemap</a> --}}
             </p>
         </div>
