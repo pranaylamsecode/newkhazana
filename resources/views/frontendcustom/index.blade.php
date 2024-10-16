@@ -1553,15 +1553,38 @@
     <div class="satta-main-result" style="border-color: #aa00c0;margin-bottom: 2px;">
 
         @foreach ($categories as $categorie)
+            @php
+
+                $jodi = App\Models\Jodi::where('category_id', $categorie->category_id)
+                    ->where('name', $current_date)
+                    ->first();
+
+            @endphp
             {{-- class  yellowbg --}}
             <div>
                 <h4>{{ $categorie->name ?? 'N/A' }}</h4>
-                <span>{{ $categorie->desc ?? 'N/A' }}</span>
-                <p> {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)->format('h:i A') }} &nbsp;&nbsp;
-                    {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->end_time)->format('h:i A') }} </p>
-                <a href="{{ url('jodi/' . $categorie->name) }}" class="result_timing_b result_btn_chart">Jodi</a>
-                <a href="{{ url('panel/' . $categorie->name) }}"
-                    class="result_timing_b_right result_btn_chart">Panel</a>
+                <span>
+                    @if ($jodi)
+                        {{-- If left_number exists, display it along with the sum of digits --}}
+                        {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}
+                        {{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}
+
+                        {{-- If right_number exists, display the sum of digits --}}
+                        {{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}
+
+                        {{-- If right_number exists, display it --}}
+                        {{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
+                    @else
+                        Comming Soon
+                    @endif
+
+
+                    <p> {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)->format('h:i A') }}
+                        &nbsp;&nbsp;
+                        {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->end_time)->format('h:i A') }} </p>
+                    <a href="{{ url('jodi/' . $categorie->name) }}" class="result_timing_b result_btn_chart">Jodi</a>
+                    <a href="{{ url('panel/' . $categorie->name) }}"
+                        class="result_timing_b_right result_btn_chart">Panel</a>
             </div>
         @endforeach
 
@@ -1622,6 +1645,5 @@
         </script>
     </div>
 </body>
-<!-- Mirrored from spboss.in/ by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Oct 2024 05:45:27 GMT -->
 
 </html>

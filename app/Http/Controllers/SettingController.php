@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Setting as Table;
 use Illuminate\Support\Facades\Storage;
 
+
 class SettingController extends Controller {
   /**
    * Create a new controller instance.

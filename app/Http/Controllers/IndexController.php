@@ -32,6 +32,8 @@ class IndexController extends Controller
             ->where('jodis.name', $current_date)
             ->select('jodis.*', 'category.name as category_name')
             ->get();
+
+            $data['current_date']  = $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
             $data['categories'] =   Category::get();
 
             $data['all_data_panels'] =  Panel::join('category', 'panels.category_id', '=', 'category.id')
