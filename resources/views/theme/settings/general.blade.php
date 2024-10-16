@@ -27,7 +27,7 @@
             <div class="col-md-12 form_page">
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ $form_action }}" class="" method="post">
+                        <form action="{{ $form_action }}" class="" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row form_sec">

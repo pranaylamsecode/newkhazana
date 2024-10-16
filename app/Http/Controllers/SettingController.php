@@ -6,6 +6,7 @@ use Spatie\Permission\Models\Role;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Setting as Table;
+use Illuminate\Support\Facades\Storage;
 
 class SettingController extends Controller {
   /**
@@ -50,6 +51,40 @@ class SettingController extends Controller {
     if (isset($request->front_title)) {
       $this->updateSetting('front_title', $request->front_title);
     }
+
+    if (isset($request->front_color_card_header)) {
+      $this->updateSetting('front_color_card_header', $request->front_color_card_header);
+    }
+
+    if (isset($request->front_color_background)) {
+      $this->updateSetting('front_color_background', $request->front_color_background);
+    }
+
+
+
+    if ($request->hasFile('front_image')) {
+      // Validate the uploaded image
+      $validated = $request->validate([
+          'front_image' => 'required', // You can modify these rules as needed
+      ]);
+
+
+
+      // Check if validation passed
+      if ($validated) {
+          // Store the uploaded file (it will be stored in storage/app/public/front_images directory)
+          $path = $request->file('front_image')->store('front_images', 'public');
+
+          // Optionally, you can store the image URL in the database
+          $this->updateSetting('front_image', $path); // Assuming this stores the path in the database
+
+          // If you need to access the image publicly, you can use this URL
+          $imageUrl = Storage::url($path);
+      }
+  }
+
+
+
     if (isset($request->theme)) {
       $this->updateSetting('theme', $request->theme);
     }

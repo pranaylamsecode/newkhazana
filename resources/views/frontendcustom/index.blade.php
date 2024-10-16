@@ -1529,6 +1529,8 @@
             Fast Result !!</p>
     </div>
 
+    <img src="{{ asset('storage/' . $path) }}" />
+
     <h4 class="banner">WORLD ME SABSE FAST SATTA MATKA RESULT</h4>
 
     <div class="satta-main-result" style="border-color: #aa00c0;margin-bottom: 2px;">
@@ -1538,7 +1540,8 @@
             <div>
                 <h4>{{ $categorie->name ?? 'N/A' }}</h4>
                 <span>{{ $categorie->desc ?? 'N/A' }}</span>
-                <p> {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)->format('h:i A') }} &nbsp;&nbsp;   {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->end_time)->format('h:i A') }} </p>
+                <p> {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)->format('h:i A') }} &nbsp;&nbsp;
+                    {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->end_time)->format('h:i A') }} </p>
                 <a href="{{ url('jodi/' . $categorie->name) }}" class="result_timing_b result_btn_chart">Jodi</a>
                 <a href="{{ url('panel/' . $categorie->name) }}"
                     class="result_timing_b_right result_btn_chart">Panel</a>
@@ -1576,7 +1579,7 @@
                 Please Quit Our Site Right Now. Copying Promoting Publishing Any of Our Content in Any Type Of Media or
                 Other Source is Illegal and against Law</p>
         </div>
-       {{--  <h6 class="pby_us">POWERD BY WorldInfo</h6> --}}
+        {{--  <h6 class="pby_us">POWERD BY WorldInfo</h6> --}}
         <div class="ftr_sm">
             <p> &copy; 2024 - 2025 <br>
 

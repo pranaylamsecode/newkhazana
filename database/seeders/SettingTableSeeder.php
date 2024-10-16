@@ -36,5 +36,27 @@ class SettingTableSeeder extends Seeder {
       'created_at' => \Carbon\Carbon::now(),
       'updated_at' => \Carbon\Carbon::now()
     ]);
+
+    DB::table('settings')->insert([
+      'key' => "front_color_card_header",
+      'value' => "",
+      'created_at' => \Carbon\Carbon::now(),
+      'updated_at' => \Carbon\Carbon::now()
+    ]);
+
+
+    DB::table('settings')->insert([
+      'key' => "front_color_background",
+      'value' => "",
+      'created_at' => \Carbon\Carbon::now(),
+      'updated_at' => \Carbon\Carbon::now()
+    ]);
+
+    DB::table('settings')->insert([
+      'key' => "front_image",
+      'value' => "",
+      'created_at' => \Carbon\Carbon::now(),
+      'updated_at' => \Carbon\Carbon::now()
+    ]);
   }
 }

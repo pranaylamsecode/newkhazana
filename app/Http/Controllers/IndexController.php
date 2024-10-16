@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Jodi;
 use App\Models\Panel;
+use App\Models\Setting;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Artisan;
@@ -38,8 +39,9 @@ class IndexController extends Controller
             ->select('panels.*', 'category.name as category_name')
             ->get();
 
+            $get_path =Setting::where('key','front_image')->first();
 
-
+            $data['path'] =   $get_path->value;
 
 
         return view('welcome', $data);
