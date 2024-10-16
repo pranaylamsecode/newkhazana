@@ -1533,6 +1533,10 @@
         .my-table.mumraj-sl h6 {
             background: <?php echo htmlspecialchars($front_color_card_header, ENT_QUOTES, 'UTF-8'); ?>;
         }
+
+        img.img-resposive {
+            width: 100%;
+        }
     </style>
 
 
@@ -1546,7 +1550,7 @@
         <p style="color: black;display: inline-block;font-size: 16px;">{{ $front_title }}</p>
     </div>
 
-    <img src="{{ asset('storage/' . $path) }}" />
+    <img class="img-resposive" src="{{ asset('storage/' . $path) }}" />
 
     <h4 class="banner">WORLD ME SABSE FAST SATTA MATKA RESULT</h4>
 
