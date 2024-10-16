@@ -1524,6 +1524,15 @@
             background-color: <?php echo htmlspecialchars($front_color_background, ENT_QUOTES, 'UTF-8'); ?> !important;
 
         }
+
+        .a_27_title,
+        .banner,
+        .cm_patti_l h6,
+        .fg-cont h6,
+        .matka-result h6,
+        .my-table.mumraj-sl h6 {
+            background: <?php echo htmlspecialchars($front_color_card_header, ENT_QUOTES, 'UTF-8'); ?>;
+        }
     </style>
 
 
