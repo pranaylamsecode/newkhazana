@@ -84,6 +84,12 @@ class JodiController extends Controller
             'name' => $request->name,
             'number' => $request->number,
             'category_id' => $request->category_id,
+            'left_number' => $request->left_number,
+            'right_number' => $request->right_number,
+            'special_style' => $request->special_style,
+
+
+
         ];
 
         if ($existingRecord) {

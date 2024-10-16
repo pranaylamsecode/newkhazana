@@ -21,7 +21,10 @@ class Jodi extends Authenticatable
         'name',
         'status',
         'number',
-        'category_id'
+        'category_id',
+'left_number',
+'right_number',
+'special_style',
     ];
 
     /**
