@@ -39,9 +39,34 @@ class IndexController extends Controller
             ->select('panels.*', 'category.name as category_name')
             ->get();
 
-            $get_path =Setting::where('key','front_image')->first();
+            $get_path = Setting::where('key','front_image')->first();
+
 
             $data['path'] =   $get_path->value;
+
+            $get_path = Setting::where('key','front_color_background')->first();
+
+
+            $data['front_color_background'] =   $get_path->value;
+
+            $get_path = Setting::where('key','front_color_card_header')->first();
+
+
+            $data['front_color_card_header'] =   $get_path->value;
+
+
+            $get_path = Setting::where('key','front_title')->first();
+
+
+            $data['front_title'] =   $get_path->value;
+
+            $get_path = Setting::where('key','site_name')->first();
+
+
+            $data['site_name'] =   $get_path->value;
+
+
+
 
 
         return view('welcome', $data);

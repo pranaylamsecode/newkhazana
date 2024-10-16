@@ -1519,14 +1519,22 @@
         }
     </style>
 
+    <style>
+        body {
+            background-color: <?php echo htmlspecialchars($front_color_background, ENT_QUOTES, 'UTF-8'); ?> !important;
+
+        }
+    </style>
+
+
+
 
 </head>
 
 <body>
     <div class="main_logo">
 
-        <p style="color: black;display: inline-block;font-size: 16px;">!! Welcome to New khazana day !! Satta Matka
-            Fast Result !!</p>
+        <p style="color: black;display: inline-block;font-size: 16px;">{{ $front_title }}</p>
     </div>
 
     <img src="{{ asset('storage/' . $path) }}" />
