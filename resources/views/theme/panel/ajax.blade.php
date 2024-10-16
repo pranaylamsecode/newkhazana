@@ -22,7 +22,9 @@
                     <tr class="row_{{ $v->id }}">
                         <td>{{ $v->name }}</td>
                         <td>{{ \Carbon\Carbon::parse($v->name)->format('l') }}</td>
-                        <td>{{ $v->number }}</td>
+                        <td>{{ $v->left_number }}-
+                            {{ array_sum(str_split($v->left_number)) % 10 }}{{ array_sum(str_split($v->right_number)) % 10 }}-{{ $v->right_number }}
+                        </td>
                         <td>{{ $v->category_name }}</td>
                         <td>
                             @if ($v->status == 1)
