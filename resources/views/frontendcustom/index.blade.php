@@ -1569,6 +1569,28 @@
             animation: lightning 1.5s infinite alternate;
             text-align: center;
         }
+
+        .satta-main-result p {
+            font-size: 15px;
+            padding: 2px 0;
+            margin-bottom: 0;
+            color: #000;
+            text-shadow: 1px 1px 2px #22221d;
+        }
+
+        .result_btn_chart {
+            color: #fff;
+            padding: 5px 7px;
+            border-radius: 8px;
+            font-size: 12px;
+            margin: 0px 0px 0px;
+            display: block;
+            transition: all .3s;
+            text-shadow: 1px 1px 2px #222;
+            margin-top: -6px;
+            border: 1px solid #e6e6e6;
+            background: #c0b8cf;
+        }
     </style>
 
 
