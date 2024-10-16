@@ -63,13 +63,31 @@
 
 
 
+                                <div class="row p-2">
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="tagline">Left Number </label>
+                                            <input type="text" name="left_number" class="form-control" id="left_number"
+                                                aria-describedby="taglineHelp">
+                                            <small id="taglineHelp" class="form-text text-muted"></small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 ">
+                                        <div class="form-group">
+                                            <label for="tagline">Center</label>
+                                            <input type="text" name="" class="form-control" id="center_value"
+                                                aria-describedby="taglineHelp" readonly>
+                                            <small id="taglineHelp" class="form-text text-muted"></small>
+                                        </div>
+                                    </div>
 
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="tagline">Number </label>
-                                        <input type="text" name="number" class="form-control" id="tagline"
-                                            aria-describedby="taglineHelp">
-                                        <small id="taglineHelp" class="form-text text-muted"></small>
+                                    <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label for="tagline">Right Number </label>
+                                            <input type="text" name="right_number" class="form-control" id="right_number"
+                                                aria-describedby="taglineHelp">
+                                            <small id="taglineHelp" class="form-text text-muted"></small>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

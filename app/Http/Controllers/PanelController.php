@@ -81,7 +81,7 @@ class PanelController extends Controller
             // Prepare the data to update/create
             $data = [
                 'name' => $request->name,
-                'number' => $request->number,
+
                 'category_id' => $request->category_id,
                 'left_number' => $request->left_number,
                 'right_number' => $request->right_number,
