@@ -68,7 +68,7 @@
                                     <div class="form-group">
                                         <label for="front_title">Front Title</label>
                                         <input type="text" name="front_title" class="form-control"
-                                            value="{{ $settings['tagline']['value'] }}" id="front_title"
+                                            value="{{ $settings['front_title']['value'] ?? '' }}" id="front_title"
                                             aria-describedby="front_titleHelp">
                                         <small id="front_titleHelp" class="form-text text-muted"></small>
                                     </div>
@@ -91,7 +91,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="front_color_background">Front Color Background</label>
-                                        <input type="color" name="front_color_background" class="form-control"
+                                        <input value="{{ $settings['front_color_background']['value'] ?? '' }}"
+                                            type="color" name="front_color_background" class="form-control"
                                             id="front_color_background" aria-describedby="front_color_backgroundHelp">
                                         <small id="front_color_backgroundHelp" class="form-text text-muted">Please select a
                                             color for the front background.</small>
@@ -101,9 +102,10 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="front_color_card_header">Front Color Card Header</label>
-                                        <input type="color" name="front_color_card_header" class="form-control"
+                                        <input value="{{ $settings['front_color_card_header']['value'] ?? '' }}"
+                                            type="color" name="front_color_card_header" class="form-control"
                                             id="front_color_card_header" aria-describedby="front_color_card_headerHelp">
-                                        <small id="front_color_backgroundHelp" class="form-text text-muted">Please select a
+                                        <small id="front_color_card_headerHelp" class="form-text text-muted">Please select a
                                             color for the front card Header.</small>
                                     </div>
                                 </div>

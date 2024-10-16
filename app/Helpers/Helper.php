@@ -33,6 +33,28 @@ function getSettings() {
     'front_title' => [
       'value' => "front_title",
     ],
+    'front_title' => [
+      'value' => "front_title",
+    ],
+    'front_title' => [
+      'value' => "front_title",
+    ],
+    'front_color_card_header' => [
+      'value' => "front_color_card_header",
+    ],
+    'front_color_background' => [
+      'value' => "front_color_background",
+    ],
+    'front_title' => [
+      'value' => "front_title",
+    ],
+    'front_image' => [
+      'value' => "front_image",
+    ],
+
+
+
+
   ];
   try {
     $new_settings =  Setting::all()->keyBy('key');
