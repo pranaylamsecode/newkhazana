@@ -24,11 +24,14 @@ function getSettings() {
     'site_name' => [
       'value' => config('app.name')
     ],
-    'site_url' => [ 
+    'site_url' => [
       'value' => config('app.url'),
     ],
-    'tagline' => [ 
+    'tagline' => [
       'value' => "Tagline",
+    ],
+    'front_title' => [
+      'value' => "front_title",
     ],
   ];
   try {

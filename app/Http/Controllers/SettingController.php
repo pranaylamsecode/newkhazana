@@ -46,6 +46,10 @@ class SettingController extends Controller {
     if (isset($request->tagline)) {
       $this->updateSetting('tagline', $request->tagline);
     }
+
+    if (isset($request->front_title)) {
+      $this->updateSetting('front_title', $request->front_title);
+    }
     if (isset($request->theme)) {
       $this->updateSetting('theme', $request->theme);
     }
