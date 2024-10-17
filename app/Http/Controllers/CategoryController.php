@@ -146,7 +146,7 @@ class CategoryController extends Controller
                     'desc' => $request->desc,
                 ]);
 
-                return redirect()->back()->with('success', ucfirst($this->handle_name).' has been updated');
+                return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', ' '.ucfirst($this->handle_name).' has been updated.');
             } catch (Exception $e) {
                 return redirect()->back()->with('error', $e->getMessage());
             }
