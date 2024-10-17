@@ -32,7 +32,10 @@
                                 <h4>{{ ucwords($categorie->name) }}</h4>
                                 <strong style="color: green;">Jodi</strong>
                                 <h5>Number:
-                                    {{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}{{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}
+
+                                    @if ($jodi)
+                                        {{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}{{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}
+                                    @endif
                                 </h5>
                                 <!-- Add other fields you want to display from $jodi_data -->
                             </div>
@@ -41,8 +44,10 @@
                             <div class="jodi-info" style="padding: 10px; border: 1px solid #ddd;">
                                 <h4>{{ ucwords($categorie->name) }}</h4>
                                 <strong style="color: red;">Panel</strong>
-                                <h5>Number: {{-- If left_number exists, display it along with the sum of digits --}}
-                                    {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}{{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}{{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}{{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
+                                <h5>Number:
+                                    @if ($jodi)
+                                        {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}{{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}{{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}{{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
+                                    @endif
                                 </h5>
                                 <!-- Add other fields you want to display from $jodi_data -->
                             </div>

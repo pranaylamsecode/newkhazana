@@ -132,37 +132,26 @@ class CategoryController extends Controller
              return redirect()->back()->with('error', $e->getMessage());
          }
         }
-    public function update(Request $request)
-    {
-        try {
+        public function update(Request $request)
+        {
+            try {
+                // Find the category by ID
+                $category = Category::findOrFail($request->id);
 
+                // Update the category with the new data
+                $category->update([
+                    'name' => $request->name,
+                    'start_time' => $request->start_time,
+                    'end_time' => $request->end_time,
+                    'desc' => $request->desc,
+                ]);
 
-
-            $update_data = [
-                'name' => $request->name,
-                'start_time' => $request->start_time,
-                'end_time' => $request->end_time,
-                'desc' => $request->desc,
-
-            ];
-
-
-            $where = [
-                'id'=>$request->id
-            ];
-
-
-
-            $user = Table::updateOrCreate($where,$update_data);
-            if(isset($request->role)){
-              $user->syncRoles($request->role);
+                return redirect()->back()->with('success', ucfirst($this->handle_name).' has been updated');
+            } catch (Exception $e) {
+                return redirect()->back()->with('error', $e->getMessage());
             }
-
-            return redirect()->back()->with('success', ucfirst($this->handle_name).' has been updated');
-        } catch (Exception $e) {
-            return redirect()->back()->with('error', $e->getMessage());
         }
-    }
+
     public function ajax(Request $request)
     {
         $edit_route = route('admin.'.$this->handle_name_plural.'.edit');
