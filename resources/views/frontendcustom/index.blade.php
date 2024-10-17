@@ -1534,9 +1534,7 @@
             background: <?php echo htmlspecialchars($front_color_card_header, ENT_QUOTES, 'UTF-8'); ?>;
         }
 
-        img.img-resposive {
-            width: 100%;
-        }
+
 
         @keyframes lightning {
             0% {
@@ -1591,6 +1589,11 @@
             border: 1px solid #e6e6e6;
             background: #c0b8cf;
         }
+
+        img.img-resposive {
+            width: 250px;
+            /* height: 120px; */
+        }
     </style>
 
 
@@ -1604,9 +1607,9 @@
         <p style="color: black;display: inline-block;font-size: 16px;">{{ $front_title }}</p>
     </div>
 
-    @if (!empty($path))
-        <img class="img-resposive" src="{{ asset('storage/' . $path) }}" />
-    @endif
+
+    <img class="img-resposive" style="widt" src="{{ url('assets/images/1000091399.jpg') }}" />
+
 
 
 
