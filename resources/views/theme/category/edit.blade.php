@@ -34,12 +34,14 @@
                                     <h5>Category Details</h5>
                                 </div>
                             </div>
+
+                            <input type="hidden" name="id" value="{{ $categories->id }}" />
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="name">Name</label>
-                                        <input type="text" name="name" class="form-control" id="name"
-                                            aria-describedby="nameHelp">
+                                        <input value="{{ $categories->name }}" type="text" name="name"
+                                            class="form-control" id="name" aria-describedby="nameHelp">
                                         <small id="nameHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -47,8 +49,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="discription">Description</label>
-                                        <input type="text" name="discription" class="form-control" id="discription"
-                                            aria-describedby="discriptionHelp">
+                                        <input value="{{ $categories->desc }}" type="text" name="desc"
+                                            class="form-control" id="discription" aria-describedby="discriptionHelp">
                                         <small id="discriptionHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -56,8 +58,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="start_time">Start Time</label>
-                                        <input type="time" name="start_time" class="form-control" id="start_time"
-                                            aria-describedby="start_timeHelp">
+                                        <input value="{{ $categories->start_time }}" type="time" name="start_time"
+                                            class="form-control" id="start_time" aria-describedby="start_timeHelp">
                                         <small id="start_timeHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -65,8 +67,8 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="end_time">End Time</label>
-                                        <input type="time" name="end_time" class="form-control" id="end_time"
-                                            aria-describedby="end_timeHelp">
+                                        <input type="time" value="{{ $categories->end_time }}" name="end_time"
+                                            class="form-control" id="end_time" aria-describedby="end_timeHelp">
                                         <small id="end_timeHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -84,7 +86,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <button type="submit" class="btn btn-primary add_site">
-                                Add
+                                Update
                             </button>
                         </div>
                     </div>

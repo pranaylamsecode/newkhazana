@@ -32,7 +32,9 @@
                             @endif
                         </td>
                         <td>
-                            <a href="#" data-id="{{ $v->id }}" class="btn btn-danger delete_btn delete{{ $v->id }} btn-sm">Delete</a>
+
+                            <a href="{{ $edit_route . '?id=' . $v->id }}" class="btn btn-primary btn-sm">Edit</a>
+                            {{-- <a href="#" data-id="{{ $v->id }}" class="btn btn-danger delete_btn delete{{ $v->id }} btn-sm">Delete</a> --}}
                         </td>
                     </tr>
                     <?php $page_number++; ?>

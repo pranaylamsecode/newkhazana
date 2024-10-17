@@ -56,12 +56,19 @@ class CategoryController extends Controller
     }
     public function edit(Request $request)
     {
-        $roles = Role::get();
-        return kview($this->handle_name_plural.'.manage', [
+
+
+        $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
+
+        $categories = Category::where('id', $request->id)->first();
+
+
+
+        return kview($this->handle_name_plural.'.edit', [
             'form_action' => route('admin.'.$this->handle_name_plural.'.update'),
             'edit' => 1,
-            'data' => Table::where('id', '=', $request->id)->first(),
-            'roles'=>$roles,
+            'categories' => $categories
+
         ]);
     }
     public function store(Request $request)
@@ -128,31 +135,23 @@ class CategoryController extends Controller
     public function update(Request $request)
     {
         try {
-            /* if(isset($request->two_factor_enable) && $request->two_factor_enable=="on"){
-                $two_factor_enable = 1;
-            }else{
-                $two_factor_enable = 0;
-            } */
+
+
+
             $update_data = [
-                'name'=>$request->name,
-                'email'=>$request->email,
+                'name' => $request->name,
+                'start_time' => $request->start_time,
+                'end_time' => $request->end_time,
+                'desc' => $request->desc,
 
             ];
 
-            if(isset($request->old_password)){
-                // $password=  Hash::make($request->password);
-                $userObj = Table::where([
-                    'id'=>$request->id,
-                ])->first();
-                if (Hash::check($request->old_password, $userObj->password)) {
-                    $update_data['password'] = bcrypt($request->password);
-                }else{
-                    return redirect()->back()->with('error', "Old password is incorrect.");
-                }
-            }
+
             $where = [
                 'id'=>$request->id
             ];
+
+
 
             $user = Table::updateOrCreate($where,$update_data);
             if(isset($request->role)){
