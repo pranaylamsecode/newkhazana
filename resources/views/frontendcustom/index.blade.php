@@ -1645,8 +1645,8 @@
                         {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)->format('h:i A') }}
                         &nbsp;&nbsp;
                         {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->end_time)->format('h:i A') }} </p>
-                    <a href="{{ url('jodi/' . $categorie->name) }}" class="result_timing_b result_btn_chart">Jodi</a>
-                    <a href="{{ url('panel/' . $categorie->name) }}"
+                    <a href="{{ url('jodi/' . $categorie->id) }}" class="result_timing_b result_btn_chart">Jodi</a>
+                    <a href="{{ url('panel/' . $categorie->id) }}"
                         class="result_timing_b_right result_btn_chart">Panel</a>
                     <br />
                     <button class="btn " onclick="window.location.reload()">Refresh</button>

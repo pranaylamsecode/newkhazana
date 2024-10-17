@@ -36,6 +36,8 @@ class IndexController extends Controller
             $data['current_date']  = $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
             $data['categories'] =   Category::get();
 
+
+
             $data['all_data_panels'] =  Panel::join('category', 'panels.category_id', '=', 'category.id')
             ->where('panels.name', $current_date)
             ->select('panels.*', 'category.name as category_name')
@@ -78,16 +80,17 @@ class IndexController extends Controller
     {
         $data = array();
         $data['current_date']  = $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
+            $lastSegment = request()->segment(count(request()->segments()));
 
             $data['all_data_jodies'] =  Jodi::join('category', 'jodis.category_id', '=', 'category.id')
-           /*  ->where('jodis.name', $current_date) */
+            ->where('jodis.category_id', $lastSegment)
             ->select('jodis.*', 'category.name as category_name')
             ->get();
-            $lastSegment = request()->segment(count(request()->segments()));
-            /* print_r($data['all_data_jodies']);die; */
 
 
-            $data['categories'] =   Category::where('name',$lastSegment)->first();
+
+            $data['categories'] =   Category::where('id',$lastSegment)->first();
+
 
 
         return view('frontendcustom.express', $data);
@@ -98,16 +101,17 @@ class IndexController extends Controller
     {
         $data = array();
         $data['current_date']  = $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
+            $lastSegment = request()->segment(count(request()->segments()));
 
             $data['all_data_jodies'] =  Jodi::join('category', 'jodis.category_id', '=', 'category.id')
-           /*  ->where('jodis.name', $current_date) */
+            ->where('jodis.category_id', $lastSegment)
             ->select('jodis.*', 'category.name as category_name')
             ->get();
-            $lastSegment = request()->segment(count(request()->segments()));
+
             /* print_r($data['all_data_jodies']);die; */
 
 
-            $data['categories'] =   Category::where('name',$lastSegment)->first();
+            $data['categories'] =   Category::where('id',$lastSegment)->first();
 
 
         return view('frontendcustom.mahal', $data);
