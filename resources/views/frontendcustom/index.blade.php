@@ -1629,16 +1629,14 @@
             <div>
                 <h4>{{ $categorie->name ?? 'N/A' }}</h4>
                 <span>
-                    @if ($jodi)
+                  @php
+                        // Get the current time
+                        $current_time = now()->format('H:i'); // Adjust format if needed
+                    @endphp
+
+                    @if ($jodi && $categorie->start_time <= $current_time && $categorie->end_time >= $current_time)
                         {{-- If left_number exists, display it along with the sum of digits --}}
-                        {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}
-                        {{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}
-
-                        {{-- If right_number exists, display the sum of digits --}}
-                        {{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}
-
-                        {{-- If right_number exists, display it --}}
-                        {{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
+                        {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}{{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}{{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}{{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
                     @else
                         <span class="clk1-rld h9">Loading...</span>
                     @endif
