@@ -1608,7 +1608,7 @@
     </div>
 
 
-    <img class="img-resposive" style="widt" src="{{ url('assets/images/1000091399.jpg') }}" />
+    <img class="img-resposive" style="widt" src="{{ url('public/assets/images/1000091399.jpg') }}" />
 
 
 
@@ -1629,7 +1629,7 @@
             <div>
                 <h4>{{ $categorie->name ?? 'N/A' }}</h4>
                 <span>
-                  @php
+                    @php
                         // Get the current time
                         $current_time = now()->format('H:i'); // Adjust format if needed
                     @endphp
