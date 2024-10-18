@@ -41,7 +41,7 @@
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input value="{{ $categories->name }}" type="text" name="name"
-                                            class="form-control" id="name" aria-describedby="nameHelp">
+                                            class="form-control" id="name" aria-describedby="nameHelp" required>
                                         <small id="nameHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -50,7 +50,8 @@
                                     <div class="form-group">
                                         <label for="discription">Description</label>
                                         <input value="{{ $categories->desc }}" type="text" name="desc"
-                                            class="form-control" id="discription" aria-describedby="discriptionHelp">
+                                            class="form-control" id="discription" aria-describedby="discriptionHelp"
+                                            required>
                                         <small id="discriptionHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -59,7 +60,7 @@
                                     <div class="form-group">
                                         <label for="start_time">Start Time</label>
                                         <input value="{{ $categories->start_time }}" type="time" name="start_time"
-                                            class="form-control" id="start_time" aria-describedby="start_timeHelp">
+                                            class="form-control" id="start_time" aria-describedby="start_timeHelp" required>
                                         <small id="start_timeHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -68,7 +69,7 @@
                                     <div class="form-group">
                                         <label for="end_time">End Time</label>
                                         <input type="time" value="{{ $categories->end_time }}" name="end_time"
-                                            class="form-control" id="end_time" aria-describedby="end_timeHelp">
+                                            class="form-control" id="end_time" aria-describedby="end_timeHelp" required>
                                         <small id="end_timeHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>

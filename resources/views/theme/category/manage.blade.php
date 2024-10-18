@@ -39,7 +39,7 @@
                                     <div class="form-group">
                                         <label for="name">Name</label>
                                         <input type="text" name="name" class="form-control" id="name"
-                                            aria-describedby="nameHelp">
+                                            aria-describedby="nameHelp" required>
                                         <small id="nameHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -48,7 +48,7 @@
                                     <div class="form-group">
                                         <label for="description">Description</label>
                                         <input type="text" name="description" class="form-control" id="description"
-                                            aria-describedby="descriptionHelp">
+                                            aria-describedby="descriptionHelp" required>
                                         <small id="descriptionHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -57,7 +57,7 @@
                                     <div class="form-group">
                                         <label for="start_time">Start Time</label>
                                         <input type="time" name="start_time" class="form-control" id="start_time"
-                                            aria-describedby="start_timeHelp">
+                                            aria-describedby="start_timeHelp" required>
                                         <small id="start_timeHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
@@ -66,7 +66,7 @@
                                     <div class="form-group">
                                         <label for="end_time">End Time</label>
                                         <input type="time" name="end_time" class="form-control" id="end_time"
-                                            aria-describedby="end_timeHelp">
+                                            aria-describedby="end_timeHelp" required>
                                         <small id="end_timeHelp" class="form-text text-muted"></small>
                                     </div>
                                 </div>
