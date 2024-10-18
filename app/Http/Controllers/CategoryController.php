@@ -77,56 +77,30 @@ class CategoryController extends Controller
         try {
 
             $jodi_present =  Category::where('name', $request->name)->first();
-            if($jodi_present)
-            {
-             $update_data = [
-                'name' => $request->name,
-                 'start_time' => $request->start_time,
-                 'end_time' => $request->end_time,
-                 'desc' => $request->description,
-
-
-             ];
-
-             if(isset($request->old_password)){
-                 // $password=  Hash::make($request->password);
-                 $userObj = Table::where([
-                     'name'=>$request->name,
-                 ])->first();
-
-             }
-             $where = [
-                 'name'=>$request->name,
-             ];
-
-             $user = Table::updateOrCreate($where,$update_data);
-             if(isset($request->role)){
-               $user->syncRoles($request->role);
-             }
-
-             return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
+            if(!empty($jodi_present)){
+                return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', ' '.ucfirst($this->handle_name).' present before.');
 
             }else{
+                $table = Table::create([
+                    'name' => $request->name,
+                    'start_time' => $request->start_time,
+                    'end_time' => $request->end_time,
+                    'desc' => $request->description,
+
+                 ]);
+
+                 if(isset($request->role)){
+                   $table->syncRoles($request->role);
+                 }
 
 
-             /*  */
-             $table = Table::create([
-                'name' => $request->name,
-                'start_time' => $request->start_time,
-                'end_time' => $request->end_time,
-                'desc' => $request->description,
-
-             ]);
-
-             if(isset($request->role)){
-               $table->syncRoles($request->role);
-             }
+             return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
 
             }
 
 
 
-             return redirect()->to(route('admin.'.$this->handle_name_plural.'.index'))->with('success', 'New '.ucfirst($this->handle_name).' has been added.');
+
          } catch (Exception $e) {
              return $e->getMessage();
              return redirect()->back()->with('error', $e->getMessage());
