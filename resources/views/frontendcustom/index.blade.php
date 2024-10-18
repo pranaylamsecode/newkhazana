@@ -1619,13 +1619,10 @@
 
         @foreach ($categories as $categorie)
             @php
-
                 $jodi = App\Models\Jodi::where('category_id', $categorie->id)
                     ->where('name', $current_date)
                     ->first();
-
             @endphp
-            {{-- class  yellowbg --}}
             <div>
                 <h4>{{ $categorie->name ?? 'N/A' }}</h4>
                 <span>
@@ -1634,25 +1631,40 @@
                         $current_time = now()->format('H:i'); // Adjust format if needed
                     @endphp
 
-                    @if ($jodi && $categorie->start_time <= $current_time && $categorie->end_time >= $current_time)
+                    @if (
+                        $jodi &&
+                            isset($categorie->start_time) &&
+                            isset($categorie->end_time) &&
+                            $categorie->start_time <= $current_time &&
+                            $categorie->end_time >= $current_time)
                         {{-- If left_number exists, display it along with the sum of digits --}}
-                        {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}{{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}{{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}{{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
+                        {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}
+                        {{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}
+                        {{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}
+                        {{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
                     @else
                         <span class="clk1-rld h9">Loading...</span>
                     @endif
 
-
                     <p>
-                        {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)->format('h:i A') }}
-                        &nbsp;&nbsp;
-                        {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->end_time)->format('h:i A') }} </p>
+                        @if (isset($categorie->start_time) && isset($categorie->end_time))
+                            {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)->format('h:i A') }}
+                            &nbsp;&nbsp;
+                            {{ \Carbon\Carbon::createFromFormat('H:i', $categorie->end_time)->format('h:i A') }}
+                        @else
+                            <span>N/A</span>
+                        @endif
+                    </p>
+
                     <a href="{{ url('jodi/' . $categorie->id) }}" class="result_timing_b result_btn_chart">Jodi</a>
                     <a href="{{ url('panel/' . $categorie->id) }}"
                         class="result_timing_b_right result_btn_chart">Panel</a>
                     <br />
-                    <button class="btn " onclick="window.location.reload()">Refresh</button>
+                    <button class="btn" onclick="window.location.reload()">Refresh</button>
+                </span>
             </div>
         @endforeach
+
 
 
 
