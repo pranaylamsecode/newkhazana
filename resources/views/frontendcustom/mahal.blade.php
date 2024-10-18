@@ -947,14 +947,7 @@
                                     $weekRange = $firstDayOfWeek->format('d-m-Y');
                                     $weekRange2 = $lastDayOfWeek->format('d-m-Y');
                                 @endphp
-                                <tr>
-                                    <td class="chart-95">{{ $weekRange }} <br /> To <br />{{ $weekRange2 }}</td>
-                                    @php
-                                        $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-                                        $dayData = collect($weekData)->keyBy(function ($item) {
-                                            return \Carbon\Carbon::parse($item->name)->format('D');
-                                        });
-                                    @endphp
+
                                 <tr>
                                     <td>01-07-2024<br />To<br />07-07-2024</td>
                                     <td class="">167-48-116</td>
@@ -1105,21 +1098,30 @@
                                     <td class="">179-71-678</td>
                                     <td class="">*</td>
                                 </tr>
+                                <tr>
+                                    <td class="chart-95">{{ $weekRange }} <br /> To <br />{{ $weekRange2 }}</td>
+                                    @php
+                                        $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+                                        $dayData = collect($weekData)->keyBy(function ($item) {
+                                            return \Carbon\Carbon::parse($item->name)->format('D');
+                                        });
+                                    @endphp
 
 
 
-                                @foreach ($daysOfWeek as $day)
-                                    <td class="chart-95">
+
+                                    @foreach ($daysOfWeek as $day)
+                                        <td class="chart-95">
 
 
-                                        @if ($dayData->has($day) && !empty($dayData[$day]->left_number) && !empty($dayData[$day]->right_number))
-                                            {{-- If left_number exists, display it along with the sum of digits --}}
-                                            {{ $dayData[$day]->left_number ? $dayData[$day]->left_number . '-' . array_sum(str_split($dayData[$day]->left_number)) % 10 : '' }}{{ $dayData[$day]->right_number ? array_sum(str_split($dayData[$day]->right_number)) % 10 . '-' . $dayData[$day]->right_number : '' }}
-                                        @else
-                                            *
-                                        @endif
-                                    </td>
-                                @endforeach
+                                            @if ($dayData->has($day) && !empty($dayData[$day]->left_number) && !empty($dayData[$day]->right_number))
+                                                {{-- If left_number exists, display it along with the sum of digits --}}
+                                                {{ $dayData[$day]->left_number ? $dayData[$day]->left_number . '-' . array_sum(str_split($dayData[$day]->left_number)) % 10 : '' }}{{ $dayData[$day]->right_number ? array_sum(str_split($dayData[$day]->right_number)) % 10 . '-' . $dayData[$day]->right_number : '' }}
+                                            @else
+                                                *
+                                            @endif
+                                        </td>
+                                    @endforeach
                                 </tr>
                             @endforeach
                         </tbody>
