@@ -1,6 +1,0 @@
-# HTTrack Website Copier Cookie File
-# This file format is compatible with Netscape cookies
-spboss.in	TRUE	/	FALSE	1999999999	__cflb	02DiuDigH4pVCo6Cor62iL7YcqTbpP7wMW5jy3pdPoL3N
-.spboss.in	TRUE	/	FALSE	1999999999	__cf_bm	R8WVMIzz2hj6_B_nBbwo8208WgTKZCCdEPp6oePuYcA-1727847906-1.0.1.1-0yEd9Y6JKVW_JWmYYVCzDcN68ql5PY3OieWTRtz1ii2IvDcpqfIRw8jS0TvCwt9MJB6xLlHx9rXwXYCYtDF8tw
-spboss.in	TRUE	/	FALSE	1999999999	SameSite	None
-
