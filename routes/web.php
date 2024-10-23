@@ -26,6 +26,11 @@ Route::get('/clear-laravel-cache','IndexController@clearLaravelCache')->name('cl
 
 Route::get('/clear-cache','IndexController@clearLaravelCache');
 
+Route::get('/robots.txt', function () {
+  return response("User-agent: *\nDisallow: /admin/\nSitemap: https://newkhazana.in/sitemap.xml", 200)
+         ->header('Content-Type', 'text/plain');
+});
+
 Auth::routes([
   'register' => false, // Registration Routes...
   'reset' => false, // Password Reset Routes...

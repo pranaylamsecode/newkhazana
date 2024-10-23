@@ -1,2 +1,19 @@
+# Allow all web crawlers to access everything
 User-agent: *
 Disallow:
+
+# Disallow access to private or admin areas
+Disallow: /admin/
+Disallow: /login/
+Disallow: /register/
+
+# Disallow access to certain file types (if applicable)
+Disallow: /*.pdf$
+Disallow: /*.zip$
+
+# Block bots from specific query parameters (if any)
+Disallow: /*?sessionid=
+Disallow: /*?filter=
+
+# Sitemap location (replace with your actual sitemap URL)
+Sitemap: https://newkhazana.in/sitemap.xml
