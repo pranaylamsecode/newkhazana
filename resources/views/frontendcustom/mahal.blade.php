@@ -948,7 +948,7 @@
                                     $weekRange2 = $lastDayOfWeek->format('d-m-Y');
                                 @endphp
 
-                                <tr>
+                                {{-- <tr>
                                     <td>01-07-2024<br />To<br />07-07-2024</td>
                                     <td class="">167-48-116</td>
                                     <td>335-11-290</td>
@@ -1097,7 +1097,7 @@
                                     <td class="">460-04-789</td>
                                     <td class="">179-71-678</td>
                                     <td class="">*</td>
-                                </tr>
+                                </tr> --}}
                                 <tr>
                                     <td class="chart-95">{{ $weekRange }} <br /> To <br />{{ $weekRange2 }}</td>
                                     @php
