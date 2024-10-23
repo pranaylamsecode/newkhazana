@@ -8,15 +8,11 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <title>SATTA MATKA | NEW KHAZANA DAY| FAST MATKA RESULT| SATTA</title>
-    <meta name="Description"
-        content="SPBOSS-A Complete record of all sattamatka result live chart. Now get fastest and most accurate and fresh online matka result updates on kalyan Satta Matka result with free matka tips and tricks kalyan matka fast matka fix leak lik god co.com cool dpboss net." />
-    <meta name="Keywords"
-        content="satta matka, sattamatka, satta matka boss, satta matka result, bangalore matka result, sattamatka result, bangalore satta matka, satta matkà results today, kalyan sattamatka result, live satta matka result, kalyan sattamatka chart result, satta matka result chart, satta matka result live, kalyan night satta matka result." />
-    <meta name="author" content="SATTA| SPBOSS |SATTA MATKA | KALYAN MATKA | MATKA RESULT | SATTAMATKA">
-    <link rel="canonical" href="index.html" />
-    <link rel="alternate" href="index.html" hreflang="en-in" />
-    <link rel="alternate" href="index.html" hreflang="hi-in" />
+    <title>NEW KHAZANA</title>
+    <meta name="Description" content="newkhazana" />
+    <meta name="Keywords" content="newkhazana" />
+    <meta name="author" content="newkhazana">
+
     <meta name="google" content="notranslate" />
     <link rel="shortcut icon" href="favnew/fav32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="favnew/apple-touch-icon.png">
@@ -29,11 +25,11 @@
     <meta content="yes" name="apple-mobile-web-app-capable">
     <meta content="yes" name="apple-touch-fullscreen">
     <meta name="Robots" content="index, follow">
-    <meta name="author" content="spboss">
-    <meta name="copyright" content="spboss net satta matka" />
+    <meta name="author" content="newkhazana">
+    <meta name="copyright" content="newkhazana" />
     <meta property="og:type" content="website">
-    <meta property="og:title" content="spboss">
-    <meta property="og:description" content="spboss">
+    <meta property="og:title" content="newkhazana">
+    <meta property="og:description" content="newkhazana">
     <meta property="og:url" content="index.html">
     <style>
         html {
