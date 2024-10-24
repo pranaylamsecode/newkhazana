@@ -484,17 +484,85 @@
         }
 
         tr td:nth-child(1) {
-            font-size: 13px
+            font-size: 16px
         }
 
+        tbody tr td:nth-child(2),
+        tbody tr td:nth-child(5),
+        tbody tr td:nth-child(8),
+        tbody tr td:nth-child(11),
+        tbody tr td:nth-child(14),
+        tbody tr td:nth-child(17),
+        tbody tr td:nth-child(20),
+        tbody tr td:nth-child(23) {
+            border-right-width: 0px;
+            font-size: 16px
+        }
 
+        tbody tr td:nth-child(3),
+        tbody tr td:nth-child(6),
+        tbody tr td:nth-child(9),
+        tbody tr td:nth-child(12),
+        tbody tr td:nth-child(15),
+        tbody tr td:nth-child(18),
+        tbody tr td:nth-child(21),
+        tbody tr td:nth-child(24),
+        tbody tr td:nth-child(27) {
+            border-left-width: 0px;
+            border-right-width: 0px;
+            font-size: 16px
+        }
+
+        tbody tr td:nth-child(4),
+        tbody tr td:nth-child(7),
+        tbody tr td:nth-child(10),
+        tbody tr td:nth-child(13),
+        tbody tr td:nth-child(16),
+        tbody tr td:nth-child(19),
+        tbody tr td:nth-child(22),
+        tbody tr td:nth-child(25),
+        tbody tr td:nth-child(28) {
+            border-left-width: 0px;
+            font-size: 16px
+        }
 
         @media only screen and (max-width:500px) {
             .panel.panel-info {
                 width: 99%
             }
 
+            tbody tr td:nth-child(3),
+            tbody tr td:nth-child(6),
+            tbody tr td:nth-child(9),
+            tbody tr td:nth-child(12),
+            tbody tr td:nth-child(15),
+            tbody tr td:nth-child(18),
+            tbody tr td:nth-child(21),
+            tbody tr td:nth-child(24),
+            tbody tr td:nth-child(27) {
+                font-size: 16px
+            }
 
+            tr td:nth-child(1),
+            tbody tr td:nth-child(2),
+            tbody tr td:nth-child(5),
+            tbody tr td:nth-child(8),
+            tbody tr td:nth-child(11),
+            tbody tr td:nth-child(14),
+            tbody tr td:nth-child(17),
+            tbody tr td:nth-child(20),
+            tbody tr td:nth-child(23),
+            tbody tr td:nth-child(4),
+            tbody tr td:nth-child(7),
+            tbody tr td:nth-child(10),
+            tbody tr td:nth-child(13),
+            tbody tr td:nth-child(16),
+            tbody tr td:nth-child(19),
+            tbody tr td:nth-child(22),
+            tbody tr td:nth-child(25),
+            tbody tr td:nth-child(28) {
+                font-size: 16px
+            }
 
             th {
                 font-size: 11px
@@ -519,8 +587,8 @@
             tbody tr td:nth-child(21),
             tbody tr td:nth-child(24),
             tbody tr td:nth-child(27) {
-
-
+                border-left-width: 0;
+                border-right-width: 0;
                 font-size: 16px
             }
 
@@ -533,7 +601,7 @@
             tbody tr td:nth-child(22),
             tbody tr td:nth-child(25),
             tbody tr td:nth-child(28) {
-
+                border-left-width: 0;
                 font-size: 16px
             }
 
@@ -545,7 +613,7 @@
             tbody tr td:nth-child(17),
             tbody tr td:nth-child(20),
             tbody tr td:nth-child(23) {
-
+                border-right-width: 0;
                 font-size: 16px
             }
 
@@ -1017,7 +1085,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td class="">{{ $weekRange }} <br />To<br />{{ $weekRange2 }}</td>
+                                    <td class="chart-95">{{ $weekRange }} <br />To<br />{{ $weekRange2 }}</td>
                                     @php
                                         $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                                         $dayData = collect($weekData)->keyBy(function ($item) {
@@ -1037,7 +1105,7 @@
 
 
                                         {{-- fake one end --}}
-                                        <td class="">
+                                        <td class="chart-95">
 
                                             @if ($dayData->has($day) && !empty($dayData[$day]->left_number) && !empty($dayData[$day]->right_number))
                                                 {{-- If left_number exists, display it along with the sum of digits --}}
