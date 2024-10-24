@@ -1640,7 +1640,7 @@
 
                     @endphp
 
-                    @if ($jodi)
+                    @if ($jodi->left_number)
                         {{-- If current time is before 15 minutes of start time, show loading --}}
                         @if ($current_time >= $start_time_minus_15 && $current_time < $categorie->start_time)
                             <br />
