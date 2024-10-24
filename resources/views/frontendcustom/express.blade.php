@@ -495,7 +495,7 @@
         tbody tr td:nth-child(17),
         tbody tr td:nth-child(20),
         tbody tr td:nth-child(23) {
-            border-right-width: 0px;
+
             font-size: 16px
         }
 
@@ -508,8 +508,7 @@
         tbody tr td:nth-child(21),
         tbody tr td:nth-child(24),
         tbody tr td:nth-child(27) {
-            border-left-width: 0px;
-            border-right-width: 0px;
+
             font-size: 16px
         }
 
@@ -522,7 +521,7 @@
         tbody tr td:nth-child(22),
         tbody tr td:nth-child(25),
         tbody tr td:nth-child(28) {
-            border-left-width: 0px;
+
             font-size: 16px
         }
 
@@ -587,8 +586,7 @@
             tbody tr td:nth-child(21),
             tbody tr td:nth-child(24),
             tbody tr td:nth-child(27) {
-                border-left-width: 0;
-                border-right-width: 0;
+
                 font-size: 16px
             }
 
@@ -601,7 +599,7 @@
             tbody tr td:nth-child(22),
             tbody tr td:nth-child(25),
             tbody tr td:nth-child(28) {
-                border-left-width: 0;
+
                 font-size: 16px
             }
 
@@ -613,7 +611,7 @@
             tbody tr td:nth-child(17),
             tbody tr td:nth-child(20),
             tbody tr td:nth-child(23) {
-                border-right-width: 0;
+
                 font-size: 16px
             }
 
@@ -916,6 +914,157 @@
                             </tr>
                         </thead>
                         <tbody>
+
+                            <tr>
+                                <td>01-07-2024 <br />To<br /> 07-07-2024</td>
+                                <td class="">48</td>
+                                <td>11</td>
+                                <td>99</td>
+                                <td class="">20</td>
+                                <td>27</td>
+                                <td class="">30</td>
+
+                            </tr>
+                            <tr>
+                                <td>08-07-2024 <br />To<br /> 14-07-2024</td>
+                                <td class="">13</td>
+                                <td>72</td>
+                                <td class="">78</td>
+                                <td class="">82</td>
+                                <td class="">18</td>
+                                <td class="">10</td>
+
+                            </tr>
+                            <tr>
+                                <td>15-07-2024 <br />To<br /> 21-07-2024</td>
+                                <td class="">23</td>
+                                <td>33</td>
+                                <td class="">10</td>
+                                <td class="">80</td>
+                                <td class="">33</td>
+                                <td class="">60</td>
+
+                            </tr>
+                            <tr>
+                                <td>22-07-2024 <br />To<br /> 28-07-2024</td>
+                                <td class="">13</td>
+                                <td class="">74</td>
+                                <td class="">65</td>
+                                <td>94</td>
+                                <td class="">15</td>
+                                <td class="">99</td>
+
+                            </tr>
+                            <tr>
+                                <td>29-07-2024 <br />To<br /> 04-08-2024</td>
+                                <td class="">19</td>
+                                <td class="">88</td>
+                                <td class="">40</td>
+                                <td class="">15</td>
+                                <td class="">08</td>
+                                <td>38</td>
+
+                            </tr>
+                            <tr>
+                                <td>05-08-2024 <br />To<br /> 11-08-2024</td>
+                                <td class="">68</td>
+                                <td class="">51</td>
+                                <td class="">13</td>
+                                <td>94</td>
+                                <td class="">17</td>
+                                <td class="">42</td>
+
+                            </tr>
+                            <tr>
+                                <td>12-08-2024 <br />To<br /> 18-08-2024</td>
+                                <td class="">65</td>
+                                <td class="">57</td>
+                                <td class="">64</td>
+                                <td class="">68</td>
+                                <td class="">90</td>
+                                <td class="">57</td>
+
+                            </tr>
+                            <tr>
+                                <td>19-08-2024 <br />To<br /> 25-08-2024</td>
+                                <td class="">41</td>
+                                <td class="">37</td>
+                                <td class="">57</td>
+                                <td>49</td>
+                                <td class="">67</td>
+                                <td class="">88</td>
+
+                            </tr>
+                            <tr>
+                                <td>26-08-2024 <br />To<br /> 01-09-2024</td>
+                                <td class="">280</td>
+                                <td>50</td>
+                                <td class="">02</td>
+                                <td class="">35</td>
+                                <td class="">50</td>
+                                <td class="">03</td>
+
+                            </tr>
+                            <tr>
+                                <td>02-09-2024 <br />To<br /> 08-09-2024</td>
+                                <td class="">09</td>
+                                <td class="">19</td>
+                                <td class="">20</td>
+                                <td class="">03</td>
+                                <td class="">85</td>
+                                <td class="">26</td>
+
+                            </tr>
+                            <tr>
+                                <td>09-09-2024 <br />To<br /> 15-09-2024</td>
+                                <td class="">81</td>
+                                <td class="">02</td>
+                                <td class="">08</td>
+                                <td class="">07</td>
+                                <td class="">09</td>
+                                <td>44</td>
+
+                            </tr>
+                            <tr>
+                                <td>16-09-2024 <br />To<br /> 22-09-2024</td>
+                                <td class="">43</td>
+                                <td class="">73</td>
+                                <td class="">31</td>
+                                <td class="">03</td>
+                                <td class="">01</td>
+                                <td class="">07</td>
+
+                            </tr>
+                            <tr>
+                                <td>23-09-2024 <br />To<br /> 29-09-2024</td>
+                                <td class="">34</td>
+                                <td>00</td>
+                                <td class="">63</td>
+                                <td class="">00</td>
+                                <td class="">56</td>
+                                <td class="">36</td>
+
+                            </tr>
+                            <tr>
+                                <td>30-09-2024 <br />To<br /> 06-10-2024</td>
+                                <td>61</td>
+                                <td class="">24</td>
+                                <td class="">02</td>
+                                <td class="">39</td>
+                                <td class="">26</td>
+                                <td class="">97</td>
+
+                            </tr>
+                            <tr>
+                                <td>07-10-2024 <br />To<br /> 13-10-2024</td>
+                                <td class="">08</td>
+                                <td>22</td>
+                                <td class="">13</td>
+                                <td class="">65</td>
+                                <td class="">04</td>
+                                <td class="">71</td>
+
+                            </tr>
                             @php
                                 $weeks = [];
                                 // Group data by week
@@ -934,158 +1083,9 @@
                                     $weekRange2 = $lastDayOfWeek->format('d-m-Y');
                                 @endphp
 
-                                <tr>
-                                    <td>01-07-2024 <br />To<br /> 07-07-2024</td>
-                                    <td class="">48</td>
-                                    <td>11</td>
-                                    <td>99</td>
-                                    <td class="">20</td>
-                                    <td>27</td>
-                                    <td class="">30</td>
 
-                                </tr>
                                 <tr>
-                                    <td>08-07-2024 <br />To<br /> 14-07-2024</td>
-                                    <td class="">13</td>
-                                    <td>72</td>
-                                    <td class="">78</td>
-                                    <td class="">82</td>
-                                    <td class="">18</td>
-                                    <td class="">10</td>
-
-                                </tr>
-                                <tr>
-                                    <td>15-07-2024 <br />To<br /> 21-07-2024</td>
-                                    <td class="">23</td>
-                                    <td>33</td>
-                                    <td class="">10</td>
-                                    <td class="">80</td>
-                                    <td class="">33</td>
-                                    <td class="">60</td>
-
-                                </tr>
-                                <tr>
-                                    <td>22-07-2024 <br />To<br /> 28-07-2024</td>
-                                    <td class="">13</td>
-                                    <td class="">74</td>
-                                    <td class="">65</td>
-                                    <td>94</td>
-                                    <td class="">15</td>
-                                    <td class="">99</td>
-
-                                </tr>
-                                <tr>
-                                    <td>29-07-2024 <br />To<br /> 04-08-2024</td>
-                                    <td class="">19</td>
-                                    <td class="">88</td>
-                                    <td class="">40</td>
-                                    <td class="">15</td>
-                                    <td class="">08</td>
-                                    <td>38</td>
-
-                                </tr>
-                                <tr>
-                                    <td>05-08-2024 <br />To<br /> 11-08-2024</td>
-                                    <td class="">68</td>
-                                    <td class="">51</td>
-                                    <td class="">13</td>
-                                    <td>94</td>
-                                    <td class="">17</td>
-                                    <td class="">42</td>
-
-                                </tr>
-                                <tr>
-                                    <td>12-08-2024 <br />To<br /> 18-08-2024</td>
-                                    <td class="">65</td>
-                                    <td class="">57</td>
-                                    <td class="">64</td>
-                                    <td class="">68</td>
-                                    <td class="">90</td>
-                                    <td class="">57</td>
-
-                                </tr>
-                                <tr>
-                                    <td>19-08-2024 <br />To<br /> 25-08-2024</td>
-                                    <td class="">41</td>
-                                    <td class="">37</td>
-                                    <td class="">57</td>
-                                    <td>49</td>
-                                    <td class="">67</td>
-                                    <td class="">88</td>
-
-                                </tr>
-                                <tr>
-                                    <td>26-08-2024 <br />To<br /> 01-09-2024</td>
-                                    <td class="">280</td>
-                                    <td>50</td>
-                                    <td class="">02</td>
-                                    <td class="">35</td>
-                                    <td class="">50</td>
-                                    <td class="">03</td>
-
-                                </tr>
-                                <tr>
-                                    <td>02-09-2024 <br />To<br /> 08-09-2024</td>
-                                    <td class="">09</td>
-                                    <td class="">19</td>
-                                    <td class="">20</td>
-                                    <td class="">03</td>
-                                    <td class="">85</td>
-                                    <td class="">26</td>
-
-                                </tr>
-                                <tr>
-                                    <td>09-09-2024 <br />To<br /> 15-09-2024</td>
-                                    <td class="">81</td>
-                                    <td class="">02</td>
-                                    <td class="">08</td>
-                                    <td class="">07</td>
-                                    <td class="">09</td>
-                                    <td>44</td>
-
-                                </tr>
-                                <tr>
-                                    <td>16-09-2024 <br />To<br /> 22-09-2024</td>
-                                    <td class="">43</td>
-                                    <td class="">73</td>
-                                    <td class="">31</td>
-                                    <td class="">03</td>
-                                    <td class="">01</td>
-                                    <td class="">07</td>
-
-                                </tr>
-                                <tr>
-                                    <td>23-09-2024 <br />To<br /> 29-09-2024</td>
-                                    <td class="">34</td>
-                                    <td>00</td>
-                                    <td class="">63</td>
-                                    <td class="">00</td>
-                                    <td class="">56</td>
-                                    <td class="">36</td>
-
-                                </tr>
-                                <tr>
-                                    <td>30-09-2024 <br />To<br /> 06-10-2024</td>
-                                    <td>61</td>
-                                    <td class="">24</td>
-                                    <td class="">02</td>
-                                    <td class="">39</td>
-                                    <td class="">26</td>
-                                    <td class="">97</td>
-
-                                </tr>
-                                <tr>
-                                    <td>07-10-2024 <br />To<br /> 13-10-2024</td>
-                                    <td class="">08</td>
-                                    <td>22</td>
-                                    <td class="">13</td>
-                                    <td class="">65</td>
-                                    <td class="">04</td>
-                                    <td class="">71</td>
-
-                                </tr>
-                                <tr>
-                                    <td class="chart-95">{{ $weekRange }} <br />To<br />{{ $weekRange2 }}</td>
+                                    <td class="">{{ $weekRange }} <br />To<br />{{ $weekRange2 }}</td>
                                     @php
                                         $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                                         $dayData = collect($weekData)->keyBy(function ($item) {
@@ -1105,7 +1105,7 @@
 
 
                                         {{-- fake one end --}}
-                                        <td class="chart-95">
+                                        <td class="">
 
                                             @if ($dayData->has($day) && !empty($dayData[$day]->left_number) && !empty($dayData[$day]->right_number))
                                                 {{-- If left_number exists, display it along with the sum of digits --}}
