@@ -1623,24 +1623,29 @@
                 <h4>{{ $categorie->name ?? 'N/A' }}</h4>
                 <span>
                     @php
-                        // Get the current time
-                        $current_time = now()->format('H:i'); // Adjust format if needed
+                        // Get the current time in the proper format
+                        $current_time = now()->format('H:i');
+
+                        // Calculate the time 15 minutes before the start time
+                        $start_time_minus_15 = \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)
+                            ->subMinutes(15)
+                            ->format('H:i');
                     @endphp
 
-                    @if (
-                        $jodi &&
-                            isset($categorie->start_time) &&
-                            isset($categorie->end_time) &&
-                            $categorie->start_time <= $current_time &&
-                            $categorie->end_time >= $current_time)
-                        {{-- If left_number exists, display it along with the sum of digits --}}
-                        {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}
-                        {{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}
-                        {{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}
-                        {{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
-                    @else
-                        <span class="clk1-rld h9">Loading...</span>
+                    @if (true)
+                        {{-- If current time is before 15 minutes of start time, show loading --}}
+                        @if ($current_time >= $start_time_minus_15 && $current_time < $categorie->start_time)
+                            <br />
+                            <span class="clk1-rld h9">Loading...</span>
+                            {{-- Otherwise, show the data --}}
+                        @elseif ($current_time >= $categorie->start_time)
+                            {{ $jodi->left_number ? $jodi->left_number . '-' : '' }}
+                            {{ $jodi->left_number ? array_sum(str_split($jodi->left_number)) % 10 : '' }}
+                            {{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}
+                            {{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
+                        @endif
                     @endif
+
 
                     <p>
                         @if (isset($categorie->start_time) && isset($categorie->end_time))
