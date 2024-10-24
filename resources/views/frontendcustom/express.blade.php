@@ -487,82 +487,14 @@
             font-size: 13px
         }
 
-        tbody tr td:nth-child(2),
-        tbody tr td:nth-child(5),
-        tbody tr td:nth-child(8),
-        tbody tr td:nth-child(11),
-        tbody tr td:nth-child(14),
-        tbody tr td:nth-child(17),
-        tbody tr td:nth-child(20),
-        tbody tr td:nth-child(23) {
-            border-right-width: 0px;
-            font-size: 13px
-        }
 
-        tbody tr td:nth-child(3),
-        tbody tr td:nth-child(6),
-        tbody tr td:nth-child(9),
-        tbody tr td:nth-child(12),
-        tbody tr td:nth-child(15),
-        tbody tr td:nth-child(18),
-        tbody tr td:nth-child(21),
-        tbody tr td:nth-child(24),
-        tbody tr td:nth-child(27) {
-            border-left-width: 0px;
-            border-right-width: 0px;
-            font-size: 23px
-        }
-
-        tbody tr td:nth-child(4),
-        tbody tr td:nth-child(7),
-        tbody tr td:nth-child(10),
-        tbody tr td:nth-child(13),
-        tbody tr td:nth-child(16),
-        tbody tr td:nth-child(19),
-        tbody tr td:nth-child(22),
-        tbody tr td:nth-child(25),
-        tbody tr td:nth-child(28) {
-            border-left-width: 0px;
-            font-size: 13px
-        }
 
         @media only screen and (max-width:500px) {
             .panel.panel-info {
                 width: 99%
             }
 
-            tbody tr td:nth-child(3),
-            tbody tr td:nth-child(6),
-            tbody tr td:nth-child(9),
-            tbody tr td:nth-child(12),
-            tbody tr td:nth-child(15),
-            tbody tr td:nth-child(18),
-            tbody tr td:nth-child(21),
-            tbody tr td:nth-child(24),
-            tbody tr td:nth-child(27) {
-                font-size: 14px
-            }
 
-            tr td:nth-child(1),
-            tbody tr td:nth-child(2),
-            tbody tr td:nth-child(5),
-            tbody tr td:nth-child(8),
-            tbody tr td:nth-child(11),
-            tbody tr td:nth-child(14),
-            tbody tr td:nth-child(17),
-            tbody tr td:nth-child(20),
-            tbody tr td:nth-child(23),
-            tbody tr td:nth-child(4),
-            tbody tr td:nth-child(7),
-            tbody tr td:nth-child(10),
-            tbody tr td:nth-child(13),
-            tbody tr td:nth-child(16),
-            tbody tr td:nth-child(19),
-            tbody tr td:nth-child(22),
-            tbody tr td:nth-child(25),
-            tbody tr td:nth-child(28) {
-                font-size: 9px
-            }
 
             th {
                 font-size: 11px
