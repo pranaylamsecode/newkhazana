@@ -1621,7 +1621,7 @@
 
                         // Get the current time in the proper format
                         $current_time = now()->format('H:i');
-                        $one_day_ago = now()->subDay()->format('Y-m-d H:i');
+                        $one_day_ago = now()->subDay()->format('H:i');
 
                         // Calculate the time 15 minutes before the start time
                         $start_time_minus_15 = \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)
@@ -1634,9 +1634,10 @@
                                 ->first();
                         } else {
                             $jodi = App\Models\Jodi::where('category_id', $categorie->id)
-                                ->where('name', $one_day_ago)
+                                ->where('name', $yesterday_date)
                                 ->first();
                         }
+
                     @endphp
 
                     @if ($jodi)
@@ -1652,10 +1653,8 @@
                             {{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
                         @endif
                     @else
-
-                     <span class="clk1-rld h9">Loading...</span>
-
-                     @endif
+                        <span class="clk1-rld h9">Loading...</span>
+                    @endif
 
 
                     <p>

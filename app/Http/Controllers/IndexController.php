@@ -33,7 +33,12 @@ class IndexController extends Controller
             ->select('jodis.*', 'category.name as category_name')
             ->get();
 
-            $data['current_date']  = $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');  // Example:
+            $data['current_date']  = $current_date = Carbon::now('Asia/Kolkata')->format('Y-m-d');
+
+            $data['yesterday_date'] = $yesterday_date = Carbon::now('Asia/Kolkata')->subDay()->format('Y-m-d');
+
+
+            // Example:
             $data['categories'] =   Category::get();
 
 
