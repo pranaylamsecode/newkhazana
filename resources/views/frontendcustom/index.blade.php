@@ -1614,25 +1614,32 @@
     <div class="satta-main-result" style="border-color: #aa00c0;margin-bottom: 2px;">
 
         @foreach ($categories as $categorie)
-            @php
-                $jodi = App\Models\Jodi::where('category_id', $categorie->id)
-                    ->where('name', $current_date)
-                    ->first();
-            @endphp
             <div>
                 <h4>{{ $categorie->name ?? 'N/A' }}</h4>
                 <span>
                     @php
+
                         // Get the current time in the proper format
                         $current_time = now()->format('H:i');
+                        $one_day_ago = now()->subDay()->format('Y-m-d H:i');
 
                         // Calculate the time 15 minutes before the start time
                         $start_time_minus_15 = \Carbon\Carbon::createFromFormat('H:i', $categorie->start_time)
                             ->subMinutes(15)
                             ->format('H:i');
+
+                        if ($current_time <= $categorie->start_time) {
+                            $jodi = App\Models\Jodi::where('category_id', $categorie->id)
+                                ->where('name', $current_date)
+                                ->first();
+                        } else {
+                            $jodi = App\Models\Jodi::where('category_id', $categorie->id)
+                                ->where('name', $one_day_ago)
+                                ->first();
+                        }
                     @endphp
 
-                    @if (true)
+                    @if ($jodi)
                         {{-- If current time is before 15 minutes of start time, show loading --}}
                         @if ($current_time >= $start_time_minus_15 && $current_time < $categorie->start_time)
                             <br />
@@ -1644,7 +1651,11 @@
                             {{ $jodi->right_number ? array_sum(str_split($jodi->right_number)) % 10 : '' }}
                             {{ $jodi->right_number ? '-' . $jodi->right_number : '' }}
                         @endif
-                    @endif
+                    @else
+
+                     <span class="clk1-rld h9">Loading...</span>
+
+                     @endif
 
 
                     <p>
