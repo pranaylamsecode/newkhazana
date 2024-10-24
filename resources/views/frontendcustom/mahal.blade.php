@@ -304,7 +304,7 @@
         tbody tr td:nth-child(20),
         tbody tr td:nth-child(23) {
             border-right-width: 0;
-            font-size: 11px;
+            font-size: 15px;
         }
 
         font-size: 9px;
@@ -487,158 +487,7 @@
             font-family: "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"
         }
 
-        @media only screen and (max-width:770px) {
-            .panel.panel-info {
-                width: 95%
-            }
-        }
 
-        .r {
-            color: red
-        }
-
-        tr td:nth-child(1) {
-            font-size: 13px
-        }
-
-        tbody tr td:nth-child(2),
-        tbody tr td:nth-child(5),
-        tbody tr td:nth-child(8),
-        tbody tr td:nth-child(11),
-        tbody tr td:nth-child(14),
-        tbody tr td:nth-child(17),
-        tbody tr td:nth-child(20),
-        tbody tr td:nth-child(23) {
-            border-right-width: 0px;
-            font-size: 13px
-        }
-
-        tbody tr td:nth-child(3),
-        tbody tr td:nth-child(6),
-        tbody tr td:nth-child(9),
-        tbody tr td:nth-child(12),
-        tbody tr td:nth-child(15),
-        tbody tr td:nth-child(18),
-        tbody tr td:nth-child(21),
-        tbody tr td:nth-child(24),
-        tbody tr td:nth-child(27) {
-            border-left-width: 0px;
-            border-right-width: 0px;
-            font-size: 23px
-        }
-
-        tbody tr td:nth-child(4),
-        tbody tr td:nth-child(7),
-        tbody tr td:nth-child(10),
-        tbody tr td:nth-child(13),
-        tbody tr td:nth-child(16),
-        tbody tr td:nth-child(19),
-        tbody tr td:nth-child(22),
-        tbody tr td:nth-child(25),
-        tbody tr td:nth-child(28) {
-            border-left-width: 0px;
-            font-size: 13px
-        }
-
-        @media only screen and (max-width:500px) {
-            .panel.panel-info {
-                width: 99%
-            }
-
-            tbody tr td:nth-child(3),
-            tbody tr td:nth-child(6),
-            tbody tr td:nth-child(9),
-            tbody tr td:nth-child(12),
-            tbody tr td:nth-child(15),
-            tbody tr td:nth-child(18),
-            tbody tr td:nth-child(21),
-            tbody tr td:nth-child(24),
-            tbody tr td:nth-child(27) {
-                font-size: 14px
-            }
-
-            tr td:nth-child(1),
-            tbody tr td:nth-child(2),
-            tbody tr td:nth-child(5),
-            tbody tr td:nth-child(8),
-            tbody tr td:nth-child(11),
-            tbody tr td:nth-child(14),
-            tbody tr td:nth-child(17),
-            tbody tr td:nth-child(20),
-            tbody tr td:nth-child(23),
-            tbody tr td:nth-child(4),
-            tbody tr td:nth-child(7),
-            tbody tr td:nth-child(10),
-            tbody tr td:nth-child(13),
-            tbody tr td:nth-child(16),
-            tbody tr td:nth-child(19),
-            tbody tr td:nth-child(22),
-            tbody tr td:nth-child(25),
-            tbody tr td:nth-child(28) {
-                font-size: 9px
-            }
-
-            th {
-                font-size: 11px
-            }
-        }
-
-        thead tr th:nth-child(1) {
-            width: 100px
-        }
-
-        @media only screen and (max-width:770px) {
-            tr td:nth-child(1) {
-                font-size: 9px
-            }
-
-            tbody tr td:nth-child(3),
-            tbody tr td:nth-child(6),
-            tbody tr td:nth-child(9),
-            tbody tr td:nth-child(12),
-            tbody tr td:nth-child(15),
-            tbody tr td:nth-child(18),
-            tbody tr td:nth-child(21),
-            tbody tr td:nth-child(24),
-            tbody tr td:nth-child(27) {
-                border-left-width: 0;
-                border-right-width: 0;
-                font-size: 16px
-            }
-
-            tbody tr td:nth-child(4),
-            tbody tr td:nth-child(7),
-            tbody tr td:nth-child(10),
-            tbody tr td:nth-child(13),
-            tbody tr td:nth-child(16),
-            tbody tr td:nth-child(19),
-            tbody tr td:nth-child(22),
-            tbody tr td:nth-child(25),
-            tbody tr td:nth-child(28) {
-                border-left-width: 0;
-                font-size: 11px
-            }
-
-            tbody tr td:nth-child(2),
-            tbody tr td:nth-child(5),
-            tbody tr td:nth-child(8),
-            tbody tr td:nth-child(11),
-            tbody tr td:nth-child(14),
-            tbody tr td:nth-child(17),
-            tbody tr td:nth-child(20),
-            tbody tr td:nth-child(23) {
-                border-right-width: 0;
-                font-size: 11px
-            }
-
-            thead tr th:nth-child(1) {
-                width: 55px
-            }
-
-            .panel.panel-info {
-                width: 99%
-            }
-        }
 
         .css-11,
         .css-16,
@@ -722,29 +571,6 @@
             text-decoration: none;
             background-color: #039;
             color: #fff;
-        }
-
-        .nd td:nth-child(2),
-        .nd td:nth-child(4),
-        .nd td:nth-child(5),
-        .nd td:nth-child(7),
-        .nd td:nth-child(8),
-        .nd td:nth-child(10),
-        .nd td:nth-child(11),
-        .nd td:nth-child(13),
-        .nd td:nth-child(14),
-        .nd td:nth-child(16),
-        .nd td:nth-child(17),
-        .nd td:nth-child(19),
-        .nd td:nth-child(20),
-        .nd td:nth-child(22),
-        .nd td:nth-child(23),
-        .nd td:nth-child(25),
-        .nd td:nth-child(26),
-        .nd td:nth-child(28),
-        .nd td:nth-child(29) {
-            writing-mode: vertical-rl;
-            text-orientation: upright;
         }
 
         .para3 {
@@ -1099,7 +925,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td class="chart-95">{{ $weekRange }} <br /> To <br />{{ $weekRange2 }}</td>
+                                    <td class="">{{ $weekRange }} <br /> To <br />{{ $weekRange2 }}</td>
                                     @php
                                         $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                                         $dayData = collect($weekData)->keyBy(function ($item) {
@@ -1111,7 +937,7 @@
 
 
                                     @foreach ($daysOfWeek as $day)
-                                        <td class="chart-95">
+                                        <td class="">
 
 
                                             @if ($dayData->has($day) && !empty($dayData[$day]->left_number) && !empty($dayData[$day]->right_number))

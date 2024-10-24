@@ -614,7 +614,7 @@
             tbody tr td:nth-child(20),
             tbody tr td:nth-child(23) {
                 border-right-width: 0;
-                font-size: 11px
+                font-size: 15px
             }
 
             thead tr th:nth-child(1) {
@@ -1085,7 +1085,7 @@
 
                                 </tr>
                                 <tr>
-                                    <td class="chart-95">{{ $weekRange }} <br />To<br />{{ $weekRange2 }}</td>
+                                    <td class="">{{ $weekRange }} <br />To<br />{{ $weekRange2 }}</td>
                                     @php
                                         $daysOfWeek = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
                                         $dayData = collect($weekData)->keyBy(function ($item) {
@@ -1105,7 +1105,7 @@
 
 
                                         {{-- fake one end --}}
-                                        <td class="chart-95">
+                                        <td class="">
 
                                             @if ($dayData->has($day) && !empty($dayData[$day]->left_number) && !empty($dayData[$day]->right_number))
                                                 {{-- If left_number exists, display it along with the sum of digits --}}
