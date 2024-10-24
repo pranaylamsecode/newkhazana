@@ -934,7 +934,7 @@
                                     $weekRange2 = $lastDayOfWeek->format('d-m-Y');
                                 @endphp
 
-                                {{--  <tr>
+                                <tr>
                                     <td>01-07-2024 <br />To<br /> 07-07-2024</td>
                                     <td class="">48</td>
                                     <td>11</td>
@@ -942,7 +942,7 @@
                                     <td class="">20</td>
                                     <td>27</td>
                                     <td class="">30</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>08-07-2024 <br />To<br /> 14-07-2024</td>
@@ -952,7 +952,7 @@
                                     <td class="">82</td>
                                     <td class="">18</td>
                                     <td class="">10</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>15-07-2024 <br />To<br /> 21-07-2024</td>
@@ -962,7 +962,7 @@
                                     <td class="">80</td>
                                     <td class="">33</td>
                                     <td class="">60</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>22-07-2024 <br />To<br /> 28-07-2024</td>
@@ -972,7 +972,7 @@
                                     <td>94</td>
                                     <td class="">15</td>
                                     <td class="">99</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>29-07-2024 <br />To<br /> 04-08-2024</td>
@@ -982,7 +982,7 @@
                                     <td class="">15</td>
                                     <td class="">08</td>
                                     <td>38</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>05-08-2024 <br />To<br /> 11-08-2024</td>
@@ -992,7 +992,7 @@
                                     <td>94</td>
                                     <td class="">17</td>
                                     <td class="">42</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>12-08-2024 <br />To<br /> 18-08-2024</td>
@@ -1002,7 +1002,7 @@
                                     <td class="">68</td>
                                     <td class="">90</td>
                                     <td class="">57</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>19-08-2024 <br />To<br /> 25-08-2024</td>
@@ -1012,7 +1012,7 @@
                                     <td>49</td>
                                     <td class="">67</td>
                                     <td class="">88</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>26-08-2024 <br />To<br /> 01-09-2024</td>
@@ -1022,7 +1022,7 @@
                                     <td class="">35</td>
                                     <td class="">50</td>
                                     <td class="">03</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>02-09-2024 <br />To<br /> 08-09-2024</td>
@@ -1032,7 +1032,7 @@
                                     <td class="">03</td>
                                     <td class="">85</td>
                                     <td class="">26</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>09-09-2024 <br />To<br /> 15-09-2024</td>
@@ -1042,7 +1042,7 @@
                                     <td class="">07</td>
                                     <td class="">09</td>
                                     <td>44</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>16-09-2024 <br />To<br /> 22-09-2024</td>
@@ -1052,7 +1052,7 @@
                                     <td class="">03</td>
                                     <td class="">01</td>
                                     <td class="">07</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>23-09-2024 <br />To<br /> 29-09-2024</td>
@@ -1062,7 +1062,7 @@
                                     <td class="">00</td>
                                     <td class="">56</td>
                                     <td class="">36</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>30-09-2024 <br />To<br /> 06-10-2024</td>
@@ -1072,7 +1072,7 @@
                                     <td class="">39</td>
                                     <td class="">26</td>
                                     <td class="">97</td>
-                                    <td>*</td>
+
                                 </tr>
                                 <tr>
                                     <td>07-10-2024 <br />To<br /> 13-10-2024</td>
@@ -1082,8 +1082,8 @@
                                     <td class="">65</td>
                                     <td class="">04</td>
                                     <td class="">71</td>
-                                    <td>*</td>
-                                </tr> --}}
+
+                                </tr>
                                 <tr>
                                     <td class="chart-95">{{ $weekRange }} <br />To<br />{{ $weekRange2 }}</td>
                                     @php
