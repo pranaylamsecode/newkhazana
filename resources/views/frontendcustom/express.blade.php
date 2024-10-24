@@ -519,8 +519,8 @@
             tbody tr td:nth-child(21),
             tbody tr td:nth-child(24),
             tbody tr td:nth-child(27) {
-                border-left-width: 0;
-                border-right-width: 0;
+
+
                 font-size: 16px
             }
 
@@ -533,8 +533,8 @@
             tbody tr td:nth-child(22),
             tbody tr td:nth-child(25),
             tbody tr td:nth-child(28) {
-                border-left-width: 0;
-                font-size: 11px
+
+                font-size: 16px
             }
 
             tbody tr td:nth-child(2),
@@ -545,8 +545,8 @@
             tbody tr td:nth-child(17),
             tbody tr td:nth-child(20),
             tbody tr td:nth-child(23) {
-                border-right-width: 0;
-                font-size: 15px
+
+                font-size: 16px
             }
 
             thead tr th:nth-child(1) {
